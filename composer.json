@@ -48,6 +48,10 @@
         "post-autoload-dump": [
             "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
             "@php artisan package:discover"
+        ],
+         "post-update-cmd": [
+            "if not exist public\\bootstrap mkdir public\\bootstrap", 
+            "xcopy /s /e vendor\\twbs\\bootstrap\\dist public\\bootstrap"
         ]
     },
     "config": {
