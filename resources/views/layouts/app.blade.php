@@ -96,7 +96,9 @@
                     @yield('content')
                 </main>
                 <aside class="col-md-2">
-                    <h3>Related Articles</h3>
+                    @section('complement')
+                        <h3>Related Articles</h3>
+                    @show
                 </aside>
             </div>
         </div>

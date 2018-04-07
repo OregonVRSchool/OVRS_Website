@@ -17,3 +17,8 @@
     </div>
      
 @endsection
+
+@section('complement')
+    @parent
+
+@endsection
