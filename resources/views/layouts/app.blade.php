@@ -24,7 +24,7 @@
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
+        <header class="navbar navbar-expand-md navbar-light navbar-laravel">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     {{ config('app.name', 'Laravel') }}
@@ -67,56 +67,39 @@
                     </ul>
                 </div>
             </div>
-        </nav>
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <div class="container" id="">
-                <ul class="navbar-nav mr-auto">
+        </header>
+        <div class="container-fluid">
+            <div class="row">
+                <nav class="col-md-2" aria-label="Main Navigation">
+                    <h5 id="quicknav-heading">Quick Navigation</h5>
+                    <dl>
+                        <dt><a href="#">About</a></dt>
+                        <dd><a href="#">Mission Statement</a></dd>
+                        <dd><a href="#">The Classroom</a></dd>
+                        <dd><a href="#">Our Success</a></dd>
+                        <dd><a href="#">Contact Us</a></dd>
+                        <dt><a href="#">Admission</a></dt>
+                        <dd><a href="#">Requirements</a></dd>
+                        <dd><a href="#">Preperation</a></dd>
+                        <dd><a href="#">Application</a></dd>
+                        <dd><a href="#">Review Process</a></dd>
+                        <dd><a href="#">Admittance</a></dd>
+                        <dt><a href="#">Courses</a></dt>
+                        <dd><a href="#">Corriculum</a></dd>
+                        <dd><a href="#">Electives</a></dd>
+                        <dd><a href="#">Programs</a></dd>
+                        <dt><a href="#">Donate</a></dt>
+                    </dl>
+                </nav>
 
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            About
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="#">Mission Statement</a>
-                            <a class="dropdown-item" href="#">The Classrooms</a>
-                            <a class="dropdown-item" href="#">Our Success</a>
-                            <a class="dropdown-item" href="#">Contact Us</a>                        
-                        </div>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Admission
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="#">Requitrements</a>
-                            <a class="dropdown-item" href="#">Preperation</a>
-                            <a class="dropdown-item" href="#">Application</a>
-                            <a class="dropdown-item" href="#">Review Process</a>
-                            <a class="dropdown-item" href="#">Admitance</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#">Rejection</a>
-                        </div>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Courses
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="#">Corriculum</a>
-                            <a class="dropdown-item" href="#">Electives</a>
-                            <a class="dropdown-item" href="#">Programs</a>
-                        </div>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Donate</a>
-                    </li>
-                </ul>                
+                <main class="py-4 col-md-8">
+                    @yield('content')
+                </main>
+                <aside class="col-md-2">
+                    <h3>Related Articles</h3>
+                </aside>
             </div>
-        </nav>
-
-        <main class="py-4">
-            @yield('content')
-        </main>
+        </div>
     </div>
 </body>
 </html>
