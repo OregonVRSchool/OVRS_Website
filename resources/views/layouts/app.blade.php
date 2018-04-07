@@ -11,7 +11,7 @@
     <title>{{ config('app.name', 'OVRS') }}</title>
 
     <!-- Scripts -->
-    <script src="{{ asset('bootstrap/js/bootstrap.js') }}" defer></script>
+    <script src="{{ asset('js/bootstrap.js') }}" defer></script>
     <script src="{{ asset('js/app.js') }}" defer></script>
 
     <!-- Fonts -->
@@ -92,7 +92,7 @@
                     </dl>
                 </nav>
 
-                <main class="py-4 col-md-8">
+                <main class="col-md-8">
                     @yield('content')
                 </main>
                 <aside class="col-md-2">
