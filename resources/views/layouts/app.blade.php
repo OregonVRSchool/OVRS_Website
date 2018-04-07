@@ -98,6 +98,19 @@
                 <aside class="col-md-2">
                     @section('complement')
                         <h3>Related Articles</h3>
+                        <div class="carosel">
+                            <a href="">
+                                <img src="">
+                                <div>
+                                    <div class="title">
+                                        
+                                    </div>
+                                    <p>
+                                        
+                                    </p>
+                                </div>
+                            </a>
+                        </div>
                     @show
                 </aside>
             </div>
