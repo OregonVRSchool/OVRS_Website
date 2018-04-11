@@ -2,13 +2,14 @@
 
 @section('content')
 
-    <div id="test">
+    <div id="page-creator">
     	{!! Form::open(array('url' => '#')) !!}
-		    <?php
-		    	echo Form::text('title', 'Title');
-		    	echo Form::textarea('content');
-		    	echo Form::submit('Click Me!');
-		    ?>
+    		
+			{!! Form::label('email', 'E-Mail Address'); !!}
+	    	{!! Form::text('title', 'Title'); !!}    
+	    	{!! Form::textarea('content'); !!}
+	    	{!! Form::submit('Click Me!'); !!}
+
 		{!! Form::close() !!}
     </div>
      
