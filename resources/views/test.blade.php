@@ -2,14 +2,12 @@
 
 @section('content')
 
-    <div id="page-creator">
+    <div id="category-creator">
     	{!! Form::open(array('url' => '#')) !!}
     		
-			{!! Form::label('title', 'Title'); !!}
-	    	{!! Form::text('title'); !!} 
-	    	{!! Form::label('content', 'Content'); !!}   
-	    	{!! Form::textarea('content'); !!}
-	    	{!! Form::submit('Create Page'); !!}
+			{!! Form::label('name', 'Category Name'); !!}
+	    	{!! Form::text('name'); !!} 
+	    	{!! Form::submit('Create Category'); !!}
 
 		{!! Form::close() !!}
     </div>

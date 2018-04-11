@@ -15,9 +15,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/test', 'PageController@Creator')->name('page-creator');
-Route::post('test', 'PageController@Create');
+Route::get('/test', 'CategoryController@Creator')->name('category-creator');
+Route::post('/test', 'CategoryController@Create');
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/creator/page', 'PageController@Creator')->name('page-creator');
+Route::post('/creator/page', 'PageController@Create');

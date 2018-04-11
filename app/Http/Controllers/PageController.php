@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Page;
+use App\Category;
 use App\Traits\SeoURL;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
