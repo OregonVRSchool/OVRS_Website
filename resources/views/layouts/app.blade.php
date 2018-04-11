@@ -93,7 +93,8 @@
                 </nav>
 
                 <main class="col-md-8">
-                    @yield('content')
+                    @section('content')
+                    @show
                 </main>
                 <aside class="col-md-2">
                     @section('complement')
