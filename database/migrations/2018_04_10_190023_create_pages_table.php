@@ -19,6 +19,7 @@ class CreatePagesTable extends Migration
             $table->string('title', 50)->unique();
             $table->text('content');
             $table->string('url', 50);
+            $table->int('category_id');
         });
     }
 
