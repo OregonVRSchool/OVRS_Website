@@ -3,11 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Page;
+use App\Traits\SeoURL;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 
 class PageController extends Controller
 {
+    use SeoURL;
     /**
      * Show the application dashboard.
      *
@@ -26,13 +28,15 @@ class PageController extends Controller
 
     public function create(Request $Request)
     {
+
       $page = new Page;
 
       $page->title = $Request->title;
       $page->content = $Request->content;
+      $page->url = $this->cleanString($Request->title);
 
       $page->save();
 
-      retun view('welcome');
+      return view('welcome');
     }
 }
