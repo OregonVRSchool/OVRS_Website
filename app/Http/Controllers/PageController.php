@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Pages;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 
@@ -22,4 +23,16 @@ class PageController extends Controller
    		
    		return view('test');
    	}
+
+    public function create(Request $Request)
+    {
+      $page = new Pages;
+
+      $page->title = $Request->title;
+      $page->content = $Request->content;
+      
+      $page->save();
+
+      retun view('welcome');
+    }
 }

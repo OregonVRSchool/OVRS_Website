@@ -5,10 +5,11 @@
     <div id="page-creator">
     	{!! Form::open(array('url' => '#')) !!}
     		
-			{!! Form::label('email', 'E-Mail Address'); !!}
-	    	{!! Form::text('title', 'Title'); !!}    
+			{!! Form::label('title', 'Title'); !!}
+	    	{!! Form::text('title'); !!} 
+	    	{!! Form::label('content', 'Content'); !!}   
 	    	{!! Form::textarea('content'); !!}
-	    	{!! Form::submit('Click Me!'); !!}
+	    	{!! Form::submit('Create Page'); !!}
 
 		{!! Form::close() !!}
     </div>

@@ -16,6 +16,7 @@ Route::get('/', function () {
 });
 
 Route::get('/test', 'PageController@Creator')->name('page-creator');
+Route::post('test', 'PageController@Create');
 
 Auth::routes();
 
