@@ -23,8 +23,17 @@ class PageController extends Controller
 
    	public function creator()
    	{
+      $categories = Category::all();
+      $dropdownlist = [];
+
+
+      foreach ($categories as $category) {
+        $dropdownlist[] = [$category->id => $category->title];
+      }
+
+      var_dump($dropdownlist);
    		
-   		return view('partials/forms/create/page');
+   		return view('partials/forms/create/page', $dropdownlist);
    	}
 
     public function create(Request $Request)
