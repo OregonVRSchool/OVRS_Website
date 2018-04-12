@@ -14,11 +14,11 @@ class CategoryController extends Controller
 
     public function index($category)
     {
-      $category = Page::where('title' , 'index')
+      $page = Page::where('title' , 'index')
                           ->where('category_title', $category)
                           ->first();
       
-      return view('layouts/page', $category);
+      return view('layouts/page', $page);
     }
 
     public function creator()

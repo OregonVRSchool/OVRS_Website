@@ -24,7 +24,7 @@ class PageController extends Controller
    	public function creator()
    	{
    		
-   		return view('test');
+   		return view('partials/forms/create/page');
    	}
 
     public function create(Request $Request)
@@ -38,6 +38,28 @@ class PageController extends Controller
 
       $page->save();
 
-      return view('welcome');
+      return view('layouts/page', $page);
+    }
+
+    public function edit($category, $title)
+    {
+      $page = Page::where('title', $title)
+                  ->where('category_title', $category)
+                  ->first();
+
+      return view("partials/forms/create/page", $page);
+    }
+
+    public function existanceCheck(Request $Request)
+    {
+      if (Page::where('title', $Request->title)->where('category_title', $Request->category)->exists()) {
+
+        return edit($Request->category, $Request->title);
+
+      } else {
+
+        return create($Request);
+
+      }
     }
 }
