@@ -17,6 +17,7 @@ Route::get('/', function () {
 
 Route::get('/test', 'CategoryController@Creator')->name('category-creator');
 Route::post('/test', 'CategoryController@Create');
+Route::get('/{category}/index', 'CategoryController@index');
 
 Auth::routes();
 

@@ -12,6 +12,15 @@ class CategoryController extends Controller
 	use SeoURL;
     //
 
+    public function index($category)
+    {
+      $category = Page::where('title' , 'index')
+                          ->where('category_title', $category)
+                          ->first();
+      
+      return view('layouts/page', $category);
+    }
+
     public function creator()
    	{
    		
