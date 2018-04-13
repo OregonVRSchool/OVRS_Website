@@ -7,6 +7,7 @@ use App\Category;
 use App\Traits\SeoURL;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
+use App\Http\Requests\PageForm;
 
 class PageController extends Controller
 {
@@ -27,7 +28,7 @@ class PageController extends Controller
    		return view('partials/forms/create/page')->with('dropdownlist', Category::dropdownlist());
    	}
 
-    public function create(Request $Request)
+    public function create(PageForm $Request)
     {
       var_dump($Request->category);
 
@@ -55,7 +56,7 @@ class PageController extends Controller
       return view("partials/forms/create/page", ['page' => $page, 'dropdownlist' => $dropdownlist]);
     }
 
-    public function existanceCheck(Request $Request)
+    public function existanceCheck(PageForm $Request)
     {
       $category = Category::find($Request->category)->title;
 
