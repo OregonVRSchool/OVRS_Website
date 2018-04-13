@@ -28,7 +28,7 @@ class PageController extends Controller
 
 
       foreach ($categories as $category) {
-        $dropdownlist[] = $category->title;
+        $dropdownlist[$category->id] = $category->title;
       }
 
       var_dump($dropdownlist);
@@ -38,20 +38,23 @@ class PageController extends Controller
 
     public function create(Request $Request)
     {
+      var_dump($Request->category);
 
       $page = new Page;
 
       $page->title = $Request->title;
       $page->content = $Request->content;
       $page->url = $this->cleanString($Request->title);
+      $page->category_title = Category::find($Request->category);
 
-      $page->save();
+      // $page->save();
 
       return view('layouts/page', $page);
     }
 
     public function edit($category, $title)
     {
+
       $page = Page::where('title', $title)
                   ->where('category_title', $category)
                   ->first();
@@ -61,13 +64,15 @@ class PageController extends Controller
 
     public function existanceCheck(Request $Request)
     {
-      if (Page::where('title', $Request->title)->where('category_title', $Request->category)->exists()) {
+      $category = Category::find($Request->category)->title;
 
-        return edit($Request->category, $Request->title);
+      if (Page::where('title', $Request->title)->where('category_title', $category)->exists()) {
+
+        return $this->edit($category, $title = $Request->title);
 
       } else {
 
-        return create($Request);
+        return $this->create($Request);
 
       }
     }

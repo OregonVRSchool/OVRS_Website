@@ -20,7 +20,7 @@ Route::post('/test', 'CategoryController@Create');
 Route::get('/{category}/index', 'CategoryController@index');
 
 Route::get('/creator/page', 'PageController@Creator')->name('page-creator');
-Route::post('/creator/page', 'PageController@Create');
+Route::post('/creator/page', 'PageController@existanceCheck');
 
 Auth::routes();
 
