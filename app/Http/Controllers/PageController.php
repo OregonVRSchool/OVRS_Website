@@ -28,12 +28,12 @@ class PageController extends Controller
 
 
       foreach ($categories as $category) {
-        $dropdownlist[] = [$category->id => $category->title];
+        $dropdownlist[] = $category->title;
       }
 
       var_dump($dropdownlist);
    		
-   		return view('partials/forms/create/page', $dropdownlist);
+   		return view('partials/forms/create/page')->with('dropdownlist', $dropdownlist);
    	}
 
     public function create(Request $Request)
