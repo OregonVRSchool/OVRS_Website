@@ -23,17 +23,8 @@ class PageController extends Controller
 
    	public function creator()
    	{
-      $categories = Category::all();
-      $dropdownlist = [];
-
-
-      foreach ($categories as $category) {
-        $dropdownlist[$category->id] = $category->title;
-      }
-
-      var_dump($dropdownlist);
    		
-   		return view('partials/forms/create/page')->with('dropdownlist', $dropdownlist);
+   		return view('partials/forms/create/page')->with('dropdownlist', Category::dropdownlist());
    	}
 
     public function create(Request $Request)
@@ -54,12 +45,12 @@ class PageController extends Controller
 
     public function edit($category, $title)
     {
-
+      
       $page = Page::where('title', $title)
                   ->where('category_title', $category)
-                  ->first();
+                  ->first();     
 
-      return view("partials/forms/create/page", $page);
+      return view("partials/forms/create/page", ['page' =>$page, 'dropdownlist' => Category::dropdownlist()]);
     }
 
     public function existanceCheck(Request $Request)

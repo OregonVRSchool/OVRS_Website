@@ -19,4 +19,14 @@ class Category extends Model
      * @var array
      */
     protected $guarded = ['id', 'created_at', 'updated_at'];
+
+    public static function DropdownList()
+    {
+        $categories = Category::all();
+        $dropdownlist = [];
+        foreach ($categories as $category) {
+            $dropdownlist[$category->id] = $category->title;
+        }
+        return $dropdownlist;
+    }
 }
