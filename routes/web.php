@@ -22,6 +22,9 @@ Route::get('/{category}/index', 'CategoryController@index');
 Route::get('/creator/page', 'PageController@Creator')->name('page-creator');
 Route::post('/creator/page', 'PageController@existanceCheck');
 
+Route::get('/edit/{category}', 'CategoryController@edit');
+Route::get('/edit/{category}/{page}', 'PageController@edit')->name('page-editor');
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

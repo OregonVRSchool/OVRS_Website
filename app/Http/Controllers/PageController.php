@@ -45,12 +45,14 @@ class PageController extends Controller
 
     public function edit($category, $title)
     {
-      
+      $dropdownlist = Category::dropdownlist();
       $page = Page::where('title', $title)
                   ->where('category_title', $category)
-                  ->first();     
+                  ->first();   
 
-      return view("partials/forms/create/page", ['page' =>$page, 'dropdownlist' => Category::dropdownlist()]);
+      $page->category_id = array_search($page->category_title, $dropdownlist);
+
+      return view("partials/forms/create/page", ['page' => $page, 'dropdownlist' => $dropdownlist]);
     }
 
     public function existanceCheck(Request $Request)
@@ -59,7 +61,7 @@ class PageController extends Controller
 
       if (Page::where('title', $Request->title)->where('category_title', $category)->exists()) {
 
-        return $this->edit($category, $title = $Request->title);
+        return redirect()->route('page-editor', ['category' => $category, 'title' => $Request->title]);
 
       } else {
 
