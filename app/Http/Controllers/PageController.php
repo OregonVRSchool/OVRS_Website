@@ -16,9 +16,13 @@ class PageController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($category, $page)
     {
-        return view('test');
+      $page = Page::where('title', $page)
+                  ->where('category_title', $category)
+                  ->first();
+
+      return view('layouts/page', $page);
     }
 
     /**
@@ -27,7 +31,7 @@ class PageController extends Controller
    	public function creator()
    	{
    		
-   		return view('partials/forms/create/page')->with('dropdownlist', Category::dropdownlist());
+   		return view('partials/forms/page')->with('dropdownlist', Category::dropdownlist());
    	}
 
     /**
@@ -39,11 +43,11 @@ class PageController extends Controller
       $validRequest = $this->validator($Request);
 
       $page = Page::updateOrCreate(
-        ['title' => $validRequest['title'], 'category' => $validRequest['category']],
+        ['title' => $validRequest['title'], 'category_title' => $validRequest['category']],
         ['content' => $validRequest['content'], 'url' => $validRequest['seoURL']]
       );
 
-      return view('layouts/page', $page);
+      return redirect()->route('page', ['category'=> $page->category_title, 'title' => $page->url]);
     }
 
     /**
@@ -94,7 +98,7 @@ class PageController extends Controller
           'content' => 'required|max:255',
       ]);
 
-      $validRequest['category'] = Category::find($validRequest['category']);
+      $validRequest['category'] = Category::find($validRequest['category'])->title;
       $validRequest['seoURL'] = $this->cleanString($validRequest['title']);
 
       return  $validRequest;

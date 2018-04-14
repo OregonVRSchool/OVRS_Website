@@ -8,7 +8,18 @@
                 <div class="card-header">Dashboard</div>
 
                 <div class="card-body">
-                    Welcome to CMS!
+                    <div>
+                        Welcome to CMS!
+                    </div>
+                    <div>
+                        What would you like to do?
+                    </div>
+                    <div>
+                        <a href="/cms/create/category">Create Category</a>
+                        <a href="/cms/edit/category">Edit Category</a>
+                        <a href="/cms/create/page">Create Page</a>
+                        <a href="/cms/edit/page">Edit Page</a>
+                    </div>
                 </div>
             </div>
         </div>

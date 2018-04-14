@@ -24,7 +24,7 @@ class CategoryController extends Controller
     public function creator()
    	{
    		
-   		return view('test');
+   		return view('partials/forms/category');
    	}
 
    	public function create(Request $Request)
@@ -47,5 +47,10 @@ class CategoryController extends Controller
 
    		return view('test');
    	}
+
+    public function edit($category)
+    {
+      return view('test');
+    }
 
 }
