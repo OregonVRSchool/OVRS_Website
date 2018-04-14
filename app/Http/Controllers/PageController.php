@@ -21,6 +21,9 @@ class PageController extends Controller
         return view('test');
     }
 
+    /**
+     * The page creator template
+     */
    	public function creator()
    	{
    		
@@ -28,16 +31,13 @@ class PageController extends Controller
    	}
 
     /**
-     * Store the incoming blog post.
-     *
-     * @param  StoreBlogPost  $request
-     * @return Response
+     * Update or Create 
+     * new or existing page
      */
     public function pageUpdateOrCreate(Request $Request)
     {
-      
-      // var_dump($Request->category);
       $validRequest = $this->validator($Request);
+
       $page = Page::updateOrCreate(
         ['title' => $validRequest['title'], 'category' => $validRequest['category']],
         ['content' => $validRequest['content'], 'url' => $validRequest['seoURL']]
@@ -46,18 +46,27 @@ class PageController extends Controller
       return view('layouts/page', $page);
     }
 
+    /**
+     * Edit an existing page
+     * by category and title
+     */
     public function edit($category, $title)
     {
-      $dropdownlist = Category::dropdownlist();
+      
       $page = Page::where('title', $title)
                   ->where('category_title', $category)
                   ->first();   
 
+      $dropdownlist = Category::dropdownlist();
       $page->category_id = array_search($page->category_title, $dropdownlist);
 
       return view("partials/forms/create/page", ['page' => $page, 'dropdownlist' => $dropdownlist]);
     }
 
+    /**
+     * Check for the existance of a page
+     * before overwriting one.
+     */
     public function existanceCheck(Request $Request)
     {
 
@@ -74,6 +83,9 @@ class PageController extends Controller
       }
     }
 
+    /**
+     * validate page form request
+     */
     public function validator(Request $Request)
     {
       $validRequest = $Request->validate([
