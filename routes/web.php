@@ -17,7 +17,8 @@ Route::get('/', function () {
 
 Route::get('/test', 'CategoryController@Creator')->name('category-creator');
 Route::post('/test', 'CategoryController@Create');
-Route::get('/{category}/index', 'CategoryController@index');
+
+Route::get('/cms', 'CMSController@index')->name('cms');
 
 Route::get('/creator/page', 'PageController@Creator')->name('page-creator');
 Route::post('/creator/page', 'PageController@existanceCheck');
@@ -25,6 +26,9 @@ Route::post('/creator/page', 'PageController@existanceCheck');
 Route::get('/edit/{category}', 'CategoryController@edit');
 Route::get('/edit/{category}/{page}', 'PageController@edit')->name('page-editor');
 Route::post('/edit/{category}/{page}', 'PageController@pageUpdate');
+
+Route::get('/{category}/index', 'CategoryController@index');
+
 
 Auth::routes();
 
