@@ -7,7 +7,6 @@ use App\Category;
 use App\Traits\SeoURL;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
-use App\Http\Requests\PageForm;
 
 class PageController extends Controller
 {
@@ -28,7 +27,13 @@ class PageController extends Controller
    		return view('partials/forms/create/page')->with('dropdownlist', Category::dropdownlist());
    	}
 
-    public function create(PageForm $Request)
+  /**
+   * Store the incoming blog post.
+   *
+   * @param  StoreBlogPost  $request
+   * @return Response
+   */
+    public function create(Request $Request)
     {
       var_dump($Request->category);
 
@@ -56,18 +61,45 @@ class PageController extends Controller
       return view("partials/forms/create/page", ['page' => $page, 'dropdownlist' => $dropdownlist]);
     }
 
-    public function existanceCheck(PageForm $Request)
+    public function existanceCheck(Request $Request)
     {
-      $category = Category::find($Request->category)->title;
+      $validRequest = $Request->validate([
+          'title' => 'required|max:50',
+          'category' => 'required',
+          'content' => 'required|max:255',
+      ]);
 
-      if (Page::where('title', $Request->title)->where('category_title', $category)->exists()) {
+      $category = Category::find($validRequest['category'])->title;
 
-        return redirect()->route('page-editor', ['category' => $category, 'title' => $Request->title]);
+      if (Page::where('title', $validRequest['title'])->where('category_title', $category)->exists()) {
+
+        return redirect()->route('page-editor', ['category' => $category, 'title' => $validRequest['title']]);
 
       } else {
 
         return $this->create($Request);
 
       }
+    }
+
+    public function save(Request $Request, $category, $title)
+    {
+      $validRequest = $Request->validate([
+          'title' => 'required|max:50',
+          'category' => 'required',
+          'content' => 'required|max:255',
+      ]);
+
+      $page = Page::where('title', $title)
+                  ->where('category_title', $category)
+                  ->first();
+
+      $page->title = $validRequest['title'];
+      $page->category_title = Category::find($validRequest['category']);
+      $page->content = $validRequest['content'];
+      $page->url = $this->cleanString($validRequest['title]');
+
+
+      return view('layouts/page', $page);
     }
 }
