@@ -24,7 +24,7 @@ Route::post('/creator/page', 'PageController@existanceCheck');
 
 Route::get('/edit/{category}', 'CategoryController@edit');
 Route::get('/edit/{category}/{page}', 'PageController@edit')->name('page-editor');
-Route::post('/edit/{category}/{page}', 'PageController@save');
+Route::post('/edit/{category}/{page}', 'PageController@pageUpdate');
 
 Auth::routes();
 

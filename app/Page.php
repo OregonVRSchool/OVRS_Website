@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Page extends Model
 {
+
     /**
      * The table associated with the model.
      *
@@ -19,4 +20,5 @@ class Page extends Model
      * @var array
      */
     protected $guarded = ['id', 'created_at', 'updated_at'];
+
 }
