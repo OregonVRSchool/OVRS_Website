@@ -22,6 +22,7 @@ class PageController extends Controller
                   ->where('category_title', $category)
                   ->first();
 
+
       return view('layouts/page', $page);
     }
 
@@ -47,7 +48,7 @@ class PageController extends Controller
         ['content' => $validRequest['content'], 'url' => $validRequest['seoURL']]
       );
 
-      return redirect()->route('page', ['category'=> $page->category_title, 'title' => $page->url]);
+      return redirect()->route('page', ['category' => $page->category_title, 'title' => $page->url]);
     }
 
     /**

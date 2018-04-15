@@ -32,20 +32,23 @@ class CategoryController extends Controller
    		$category = new Category;
 
    		$category->title = $Request->title;
+      $category->url = $this->cleanString($Request->title);
 
-   		$category->save();
+   		
 
    		$page = new Page;
 
-   		$page->title = $category->title;
+   		$page->title = "index";
 	    $page->content = "This is the default content";
-	    $page->url = $this->cleanString($Request->title)."index";
+	    $page->url = "index";
 	    $page->category_title = $category->title;
 
+      $category->save();
 	    $page->save();
+      
 	    
 
-   		return view('test');
+   		return redirect()->route('page', ['category' => $category->url, 'page' => $page->url]);
    	}
 
     public function edit($category)
