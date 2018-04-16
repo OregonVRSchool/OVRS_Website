@@ -22,9 +22,15 @@ class CMSController extends Controller
 
     public function pages()
     {
-    	$categories = Category::all();
-    	$pages = Page::all();
 
-    	return view('partials.cms.page')->with(['categories' => $categories, 'pages' => $pages]);
+    	$categories = Category::all();
+        $map = [];
+        foreach ($categories as $category) {
+            $category['index'] = $category->pages()->where('title', 'index')->first();
+            $category['pages'] = $category->pages()->where('title', '!=', 'index')->get();            
+            $map[] = $category;
+        }
+        
+    	return view('partials.cms.page')->with(['map' => $map]);
     }
 }

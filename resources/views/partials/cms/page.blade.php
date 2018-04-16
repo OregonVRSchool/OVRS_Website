@@ -6,20 +6,14 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
         	<ul>
-        		@foreach($categories as $category)
-                    @foreach($pages as $page)
-                        @if($page->category_title == $category->title)
-                            @if($page->title == 'index')
-                    			<li>
-                    				<a href="/cms/edit/{{ $category->url }}/{{ $page->url }}">{{ $category->title }}</a>
-                                    <ul>
-                            @else
-                                <li><a href="/cms/edit/{{ $category->url }}/{{ $page->url }}">{{ $page->title }}</a></li>
-                            @endif
-                            </ul></li>
-                        @endif
-                    @endforeach
-        		@endforeach
+        		@foreach($map as $category)
+                    <li><a href="/cms/edit/{{ $category->url }}/{{ $category->index->url }}">{{ $category->title }}</a></li>
+                    <ul>
+                        @foreach($category->pages as $page)
+                            <li><a href="/cms/edit/{{ $category->url }}/{{ $page->url }}">{{ $page->title }}</a></li>
+                        @endforeach
+                    </ul>
+                @endforeach
         	</ul>
         </div>
     </div>

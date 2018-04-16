@@ -21,4 +21,14 @@ class Page extends Model
      */
     protected $guarded = ['id', 'created_at', 'updated_at'];
 
+    public static function indexes()
+    {
+        return Page::where('title', 'index')->get();
+    }
+
+    public static function nonindexes()
+    {
+        return $this->where('title', '!=', 'index')->get();
+    }
+
 }

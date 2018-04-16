@@ -29,4 +29,9 @@ class Category extends Model
         }
         return $dropdownlist;
     }
+
+    public function pages()
+    {
+        return $this->hasmany('App\Page', 'category_title', 'title');
+    }
 }
