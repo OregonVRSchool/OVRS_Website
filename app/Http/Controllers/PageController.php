@@ -18,9 +18,8 @@ class PageController extends Controller
      */
     public function index($category, $page)
     {
-      $page = Page::where('title', $page)
-                  ->where('category_title', $category)
-                  ->first();
+      $page = Category::where('url', $category)->first()
+                 ->pages()->where('url', $page)->first();
 
 
       return view('layouts/page', $page);
@@ -41,6 +40,7 @@ class PageController extends Controller
      */
     public function pageUpdateOrCreate(Request $Request)
     {
+
       $validRequest = $this->validator($Request);
 
       $page = Page::updateOrCreate(
@@ -58,14 +58,14 @@ class PageController extends Controller
     public function edit($category, $title)
     {
       
-      $page = Page::where('title', $title)
-                  ->where('category_title', $category)
-                  ->first();   
+      $page = Category::where('url', $category)->first()
+                ->pages()->where('url', $title)->first();  
 
       $dropdownlist = Category::dropdownlist();
+      
       $page->category_id = array_search($page->category_title, $dropdownlist);
 
-      return view("partials/forms/create/page", ['page' => $page, 'dropdownlist' => $dropdownlist]);
+      return view("partials/forms/page", ['page' => $page, 'dropdownlist' => $dropdownlist]);
     }
 
     /**
@@ -86,6 +86,27 @@ class PageController extends Controller
         return $this->pageUpdateOrCreate($Request);
 
       }
+    }
+
+    public function update(Request $Request, $category, $title)
+    {
+      $validRequest = $this->validator($Request);
+
+      $category = Category::where('url', $category)->first();
+      $page = $category->pages()->where('url', $title)->first();
+
+      $page->update(
+        [
+          'title' => $validRequest['title'],
+          'category_title' => $validRequest['category'],
+          'content' => $validRequest['content'],
+          'url' => $validRequest['seoURL'],          
+        ]
+      );
+
+      $category = Category::where('title', $page->category_title)->first();
+
+      return redirect()->route('page', ['category' => $category->url, 'title' => $page->url]);
     }
 
     /**

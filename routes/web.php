@@ -28,7 +28,7 @@ Route::get('/cms/edit/page', 'CMSController@pages');
 Route::get('/cms/edit/category', 'CMSController@categories');
 Route::get('/cms/edit/{category}', 'CategoryController@edit');
 Route::get('/cms/edit/{category}/{page}', 'PageController@edit')->name('page-editor');
-Route::post('/cms/edit/{category}/{page}', 'PageController@pageUpdate');
+Route::post('/cms/edit/{category}/{page}', 'PageController@update');
 
 Route::get('/cms/{category}/index', 'CategoryController@index');
 Route::get('/{category}/{page}', 'PageController@index')->name('page');
