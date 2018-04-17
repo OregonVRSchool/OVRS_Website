@@ -5,9 +5,11 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Page;
 use App\Category;
+use App\Traits\SiteMap;
 
 class CMSController extends Controller
 {
+    use SiteMap;
     public function index()
     {
     	return view('cms');
@@ -24,12 +26,7 @@ class CMSController extends Controller
     {
 
     	$categories = Category::all();
-        $map = [];
-        foreach ($categories as $category) {
-            $category['index'] = $category->pages()->where('title', 'index')->first();
-            $category['pages'] = $category->pages()->where('title', '!=', 'index')->get();            
-            $map[] = $category;
-        }
+        $map = $this->GetMap();
         
     	return view('partials.cms.page')->with(['map' => $map]);
     }

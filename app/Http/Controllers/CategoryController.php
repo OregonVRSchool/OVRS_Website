@@ -48,7 +48,7 @@ class CategoryController extends Controller
       
 	    
 
-   		return redirect()->route('page', ['category' => $category->url, 'page' => $page->url]);
+   		return redirect()->route('page-editor', ['category' => $category->url, 'page' => $page->url]);
    	}
 
     public function edit($category)
