@@ -51,9 +51,23 @@ class CategoryController extends Controller
    		return redirect()->route('page-editor', ['category' => $category->url, 'page' => $page->url]);
    	}
 
-    public function edit($category)
+    public function edit(Request $Request, $category)
     {
-      return view('test');
+      $category = Category::where('url', $category)->first();
+
+      $category->update([
+        'title' => $Request->title,
+        'url' => $this->cleanString($Request->title)
+      ]);
+
+      return redirect(route('cms-categories'));
+    }
+
+    public function editor($category)
+    {
+      $category = Category::where('url', $category)->first();
+
+      return view('partials/forms/category', ['category' => $category]);
     }
 
 }
