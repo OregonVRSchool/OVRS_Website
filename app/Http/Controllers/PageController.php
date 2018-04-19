@@ -22,7 +22,7 @@ class PageController extends Controller
                  ->pages()->where('url', $page)->first();
 
 
-      return view('layouts/page', $page);
+      return view('layouts/page', ['page' => $page]);
     }
 
     /**
@@ -50,7 +50,7 @@ class PageController extends Controller
         'url' => $validRequest['seoURL']
       ]);
 
-      return redirect()->route('page', ['category' => $page->category->url, 'title' => $page->url]);
+      return redirect()->route('cms-pages');
     }
 
     /**
@@ -105,7 +105,7 @@ class PageController extends Controller
         ]
       );
 
-      return redirect()->route('page', ['category' => $page->category->url, 'title' => $page->url]);
+      return redirect()->route('cms-pages');
     }
 
     public function updateIndex(Request $Request, $category)

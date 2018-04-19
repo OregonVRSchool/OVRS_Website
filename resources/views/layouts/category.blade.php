@@ -2,7 +2,7 @@
 
 
 @section('content')
-<div id="{!! $category_title !!} ">
+<div id="{!! $page->category->title !!} ">
      
 @show
 </div>

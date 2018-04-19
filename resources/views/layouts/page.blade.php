@@ -1,20 +1,20 @@
 @extends('layouts.category')
 
 @section('content')
-	@if ($title === "index")
-	    <div id="{!! $category_title !!}">
+	@if ($page->title === "index")
+	    <div id="{!! $page->category->title !!}">
 	    	<div class="title">
-	    		{!! $category_title !!}
+	    		{!! $page->category->title !!}
 	    	
 	@else
-		<div id="{!! $title !!}">
+		<div id="{!! $page->title !!}">
 	    	<div class="title">
-	    		{!! $title !!}
+	    		{!! $page->title !!}
 	@endif
 	
 			</div>
 			<div class="content">
-	    		{!! $content !!}
+	    		{!! $page->content !!}
 	    	</div>
 	    </div>
      
