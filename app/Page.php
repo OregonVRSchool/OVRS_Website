@@ -33,7 +33,7 @@ class Page extends Model
 
     public function category()
     {
-        return $this->belongsTo('App\Category', 'category_title', 'title');
+        return $this->belongsTo('App\Category');
     }
 
 }

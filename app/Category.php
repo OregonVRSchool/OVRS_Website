@@ -32,6 +32,6 @@ class Category extends Model
 
     public function pages()
     {
-        return $this->hasmany('App\Page', 'category_title', 'title');
+        return $this->hasmany('App\Page');
     }
 }

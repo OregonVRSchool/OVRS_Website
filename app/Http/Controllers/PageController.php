@@ -45,7 +45,7 @@ class PageController extends Controller
 
       $page = Page::create([
         'title' => $validRequest['title'],
-        'category_title' => $validRequest['category'],
+        'category_id' => $validRequest['category'],
         'content' => $validRequest['content'], 
         'url' => $validRequest['seoURL']
       ]);
@@ -63,9 +63,8 @@ class PageController extends Controller
       $page = Category::where('url', $category)->first()
                 ->pages()->where('url', $title)->first();  
 
+
       $dropdownlist = Category::dropdownlist();
-      
-      $page->category_id = array_search($page->category_title, $dropdownlist);
 
       return view("partials/forms/page", ['page' => $page, 'dropdownlist' => $dropdownlist]);
     }
@@ -79,7 +78,7 @@ class PageController extends Controller
 
       $validRequest = $this->validator($Request);
       
-      if (Page::where('title', $validRequest['title'])->where('category_title', $validRequest['category'])->exists()) {
+      if (Page::where('title', $validRequest['title'])->where('category_id', $validRequest['category'])->exists()) {
 
         return redirect()->route('page-editor', ['category' => $validRequest['category'], 'title' => $validRequest['title']]);
 
@@ -100,15 +99,29 @@ class PageController extends Controller
       $page->update(
         [
           'title' => $validRequest['title'],
-          'category_title' => $validRequest['category'],
+          'category_id' => $validRequest['category'],
           'content' => $validRequest['content'],
           'url' => $validRequest['seoURL'],          
         ]
       );
 
-      $category = Category::where('title', $page->category_title)->first();
+      return redirect()->route('page', ['category' => $page->category->url, 'title' => $page->url]);
+    }
 
-      return redirect()->route('page', ['category' => $category->url, 'title' => $page->url]);
+    public function updateIndex(Request $Request, $category)
+    {
+      $validRequest = $Request->validate([
+        'content' => 'max:255'
+      ]);
+
+      $page = Category::where('url', $category)->first()
+              ->pages()->where('title', 'index')->first();
+
+      $page->content = $validRequest['content'];
+
+      $page->save();
+
+      return redirect(route('cms-pages'));
     }
 
     /**
@@ -122,7 +135,6 @@ class PageController extends Controller
           'content' => 'required|max:255',
       ]);
 
-      $validRequest['category'] = Category::find($validRequest['category'])->title;
       $validRequest['seoURL'] = $this->cleanString($validRequest['title']);
 
       return  $validRequest;

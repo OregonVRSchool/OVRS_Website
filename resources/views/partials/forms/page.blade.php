@@ -11,15 +11,18 @@
 	    </div>
 	@endif
     <div id="page-creator">
-    	{!! Form::open(array('url' => '#')) !!}
-    		{!! Form::label('title', 'Title'); !!}
-    		@if (isset($page))				
-		    	{!! Form::text('title', $page->title); !!} 
-	    		{!! Form::select('category', $dropdownlist, $page->category_id, ['placeholder' => 'Category']); !!}
+    	{!! Form::open(array('url' => '#')) !!}    		
+    		@if (isset($page))	
+    			@if ($page->title != 'index')	
+    				{!! Form::label('title', 'Title'); !!}		
+		    		{!! Form::text('title', $page->title); !!} 
+	    			{!! Form::select('category', $dropdownlist, $page->category_id, ['placeholder' => 'Category']); !!}
+	    		@endif
 		    	{!! Form::label('content', 'Content'); !!}   
 		    	{!! Form::textarea('content', $page->content); !!}
 		    	{!! Form::submit('Update Page'); !!}
 		    @else
+		    	{!! Form::label('title', 'Title'); !!}
 		    	{!! Form::text('title'); !!} 
 	    		{!! Form::select('category', $dropdownlist, null, ['placeholder' => 'Category']); !!}
 		    	{!! Form::label('content', 'Content'); !!}   

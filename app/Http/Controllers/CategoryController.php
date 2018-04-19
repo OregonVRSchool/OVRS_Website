@@ -14,9 +14,8 @@ class CategoryController extends Controller
 
     public function index($category)
     {
-      $page = Page::where('title' , 'index')
-                          ->where('category_title', $category)
-                          ->first();
+      $page = Category::where('title', $category)->first()
+             ->pages()->where('title', 'index')->first();
       
       return view('layouts/page', $page);
     }
@@ -29,41 +28,36 @@ class CategoryController extends Controller
 
    	public function create(Request $Request)
    	{
-   		$category = new Category;
+   		$category = Category::create([
+        'title' => $Request->title,
+        'url' => $this->cleanString($Request->title)
+      ]);
 
-   		$category->title = $Request->title;
-      $category->url = $this->cleanString($Request->title);
+   		$page = Page::create([
+        'title' => "index",
+        'content' => "This is the default content",
+        'url' => "index",
+        'category_id' => $category->id
+      ]);
 
-   		
 
-   		$page = new Page;
-
-   		$page->title = "index";
-	    $page->content = "This is the default content";
-	    $page->url = "index";
-	    $page->category_title = $category->title;
-
-      $category->save();
-	    $page->save();
-      
-	    
 
    		return redirect()->route('page-editor', ['category' => $category->url, 'page' => $page->url]);
    	}
 
-    public function edit(Request $Request, $category)
+    public function update(Request $Request, $category)
     {
       $category = Category::where('url', $category)->first();
 
       $category->update([
         'title' => $Request->title,
         'url' => $this->cleanString($Request->title)
-      ]);
+      ]);      
 
       return redirect(route('cms-categories'));
     }
 
-    public function editor($category)
+    public function edit($category)
     {
       $category = Category::where('url', $category)->first();
 

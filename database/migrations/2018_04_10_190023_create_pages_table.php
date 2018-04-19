@@ -16,10 +16,10 @@ class CreatePagesTable extends Migration
         Schema::create('pages', function (Blueprint $table) {
             $table->increments('id')->unique();
             $table->timestamps();
-            $table->string('title', 50)->unique();
+            $table->string('title', 50);
             $table->text('content');
             $table->string('url', 50);
-            $table->string('category_title', 50);
+            $table->integer('category_id');
         });
     }
 
