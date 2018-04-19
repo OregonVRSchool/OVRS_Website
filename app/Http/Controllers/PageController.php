@@ -38,17 +38,19 @@ class PageController extends Controller
      * Update or Create 
      * new or existing page
      */
-    public function pageUpdateOrCreate(Request $Request)
+    public function create(Request $Request)
     {
 
       $validRequest = $this->validator($Request);
 
-      $page = Page::updateOrCreate(
-        ['title' => $validRequest['title'], 'category_title' => $validRequest['category']],
-        ['content' => $validRequest['content'], 'url' => $validRequest['seoURL']]
-      );
+      $page = Page::create([
+        'title' => $validRequest['title'],
+        'category_title' => $validRequest['category'],
+        'content' => $validRequest['content'], 
+        'url' => $validRequest['seoURL']
+      ]);
 
-      return redirect()->route('page', ['category' => $page->category_title, 'title' => $page->url]);
+      return redirect()->route('page', ['category' => $page->category->url, 'title' => $page->url]);
     }
 
     /**
@@ -83,7 +85,7 @@ class PageController extends Controller
 
       } else {
 
-        return $this->pageUpdateOrCreate($Request);
+        return $this->create($Request);
 
       }
     }
