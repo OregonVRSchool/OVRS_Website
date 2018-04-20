@@ -69,6 +69,13 @@ form label, form input, form textarea{
 
 /* ID's */
 
+#page {
+	color: black;
+	background-color: gray;
+	padding: 1em;
+	min-height: 545px;
+}
+
 #welcome{
 	background-image: url("/images/billetto-editorial.jpg");
 	width: 100%;
