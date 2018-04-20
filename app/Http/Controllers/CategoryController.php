@@ -10,8 +10,10 @@ use Illuminate\Http\Request;
 class CategoryController extends Controller
 {
 	use SeoURL;
-    //
-
+    
+    /**
+     * Return a Category index page
+     */
     public function index($category)
     {
       $page = Category::where('title', $category)->first()
@@ -20,12 +22,19 @@ class CategoryController extends Controller
       return view('layouts/page', $page);
     }
 
+    /**
+     * Return the form for a new category
+     */
     public function creator()
    	{
    		
    		return view('partials/forms/category');
    	}
 
+    /**
+     * Create the requested category
+     * Create an index page for the category
+     */
    	public function create(Request $Request)
    	{
    		$category = Category::create([
@@ -40,11 +49,12 @@ class CategoryController extends Controller
         'category_id' => $category->id
       ]);
 
-
-
    		return redirect()->route('page-editor', ['category' => $category->url, 'page' => $page->url]);
    	}
 
+    /**
+     * Update a category
+     */
     public function update(Request $Request, $category)
     {
       $category = Category::where('url', $category)->first();
@@ -57,6 +67,10 @@ class CategoryController extends Controller
       return redirect(route('cms-categories'));
     }
 
+    /**
+     * Return the form for 
+     * for editing a category
+     */
     public function edit($category)
     {
       $category = Category::where('url', $category)->first();

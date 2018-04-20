@@ -5,16 +5,21 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-        	<ul>
-        		@foreach($map as $category)
-                    <li><a href="/cms/edit/{{ $category->url }}/{{ $category->index->url }}">{{ $category->title }}</a></li>
-                    <ul>
-                        @foreach($category->pages as $page)
-                            <li><a href="/cms/edit/{{ $category->url }}/{{ $page->url }}">{{ $page->title }}</a></li>
+            <div class="card">
+                <div class="card-header">
+                    Edit Pages
+                </div>
+                <div class="card-body">
+                	<dl>
+                		@foreach($map as $category)
+                            <dt><a href="/cms/edit/{{ $category->url }}/{{ $category->index->url }}">{{ $category->title }}</a></dt>
+                            @foreach($category->pages as $page)
+                                <dd><a href="/cms/edit/{{ $category->url }}/{{ $page->url }}">{{ $page->title }}</a></dd>
+                            @endforeach
                         @endforeach
-                    </ul>
-                @endforeach
-        	</ul>
+                	</ul>
+                </div>
+            </div>
         </div>
     </div>
 </div>

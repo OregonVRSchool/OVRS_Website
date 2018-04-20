@@ -2,21 +2,31 @@
 
 @section('content')
 	@parent
+	<div class="container">
+    	<div class="row justify-content-center">
+        	<div class="col-md-8">
+				<div class="card">
+				    <div id="category-creator">
+				    	{!! Form::open(array('url' => '#')) !!}
+				    		<div class="card-header">
+								Category Name
+							</div>
+							<div class="card-body"> 
+								@if(isset($category))
+						    		{!! Form::text('title', $category->title); !!} 
+						    		{!! Form::submit('Update Category'); !!}
+						    	@else
+						    		{!! Form::text('title', 'Category'); !!} 
+						    		{!! Form::submit('Create Category'); !!}
+						    	@endif
+						    </div>
 
-    <div id="category-creator">
-    	{!! Form::open(array('url' => '#')) !!}
-    		
-			{!! Form::label('name', 'Category Name'); !!}
-			@if(isset($category))
-	    		{!! Form::text('title', $category->title); !!} 
-	    		{!! Form::submit('Update Category'); !!}
-	    	@else
-	    		{!! Form::text('title'); !!} 
-	    		{!! Form::submit('Create Category'); !!}
-	    	@endif
-
-		{!! Form::close() !!}
-    </div>
+						{!! Form::close() !!}
+				    </div>
+			    </div>
+			</div>
+		</div>
+	</div>
      
 @endsection
 

@@ -89,6 +89,9 @@ class PageController extends Controller
       }
     }
 
+    /**
+     * Update a Page
+     */
     public function update(Request $Request, $category, $title)
     {
       $validRequest = $this->validator($Request);
@@ -108,6 +111,9 @@ class PageController extends Controller
       return redirect()->route('cms-pages');
     }
 
+    /**
+     * Update a Category index page
+     */
     public function updateIndex(Request $Request, $category)
     {
       $validRequest = $Request->validate([
