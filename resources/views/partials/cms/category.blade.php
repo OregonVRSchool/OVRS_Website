@@ -7,7 +7,8 @@
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">
-                    Edit Categories
+                    Edit Categories / <a href="/cms/create/category">New Category</a>
+                    <a class="back" href="/cms">Back to CMS</a>
                 </div>
                 <div class="card-body">
                 	<ul>

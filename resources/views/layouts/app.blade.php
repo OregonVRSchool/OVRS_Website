@@ -28,7 +28,7 @@
             <div class="container">                
 
                 <div class="collapse navbar-collapse" id="navbarProfileContent">
-                    <!-- Left Side Of Navbar -->
+                    <!-- Left Side Of Header -->
                     <ul class="mr-auto">
                         <a class="" href="{{ url('/') }}">
                             {{ config('app.name', 'Laravel') }}
@@ -38,7 +38,7 @@
                         </button>
                     </ul>
 
-                    <!-- Right Side Of Navbar -->
+                    <!-- Right Side Of Header -->
                     <ul class="ml-auto">
                         <!-- Authentication Links -->
                         @guest

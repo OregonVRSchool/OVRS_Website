@@ -97,6 +97,10 @@ form label, form input, form textarea{
 		border-bottom: 1px solid #FFC900;
 	}
 
+	.card-header .back {
+		float: right;
+	}
+
 .dropdown-menu{
 	color: #FFC900;
 	background-color: black;
