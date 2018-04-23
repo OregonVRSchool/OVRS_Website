@@ -15,7 +15,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-
+Route::get('/apply', 'GetController@apply')->name('apply');
+Route::post('/apply', 'PostController@apply');
 
 Route::get('/cms', 'CMSController@index')->name('cms');
 
