@@ -123,6 +123,13 @@ button:hover {
 .apply .card-body {
 	padding: 0px;
 }
+
+.fancy-title{
+	font-size: 30px;
+	font-family: serif, sans-serif, Arial;
+	font-style: italic;
+	font-weight: 600;
+}
 /* bootstrap overrides */
 .card{
 	margin-top: 50px;

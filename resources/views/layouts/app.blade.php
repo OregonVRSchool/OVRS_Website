@@ -31,7 +31,7 @@
                     <!-- Left Side Of Header -->
                     <ul class="mr-auto">
                         <a class="" href="{{ url('/') }}">
-                            {{ config('app.name', 'Laravel') }}
+                            <div class="fancy-title">{{ config('app.name', 'Laravel') }}</div>
                         </a>
                         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarProfileContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                             <span class="navbar-toggler-icon"></span>
