@@ -29,6 +29,10 @@ ul{
 
 }
 
+	ul.ml-auto{
+		text-align: right;
+	}
+
 dl {
 	padding: .5rem;
 	
@@ -100,6 +104,72 @@ button:hover {
 	border-right: 1px solid #FFC900;
 }
 
+.dropdown-list {
+	border: 1px solid;
+	border-top: none;
+}
+
+/* Dropdown Button */
+.dropbtn {
+    background-color: black;
+    color: #FFC900;
+    padding: 5px 16px;
+    font-size: 16px;
+    border: none;
+    text-align: left;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+    position: relative;
+    display: block;
+    width: 100%;
+    padding-bottom: 5px;
+    background-color: black;
+    border-top: 1px solid;
+    /*border: 1px solid;*/
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+    display: none;
+    position: relative;
+    background-color: black;
+    min-width: 160px;
+    width: 100%;
+    transition-timing-function: ease;
+    -webkit-transition: top 2s; /* For Safari 3.1 to 6.0 */
+    transition: top 2s;
+}
+
+	.dropdown button:hover{
+		border: none;
+	}
+
+	/* Links inside the dropdown */
+	.dropdown-content a {
+	    color: #FFC900;
+	    padding: 0px 25px;
+	    text-decoration: none;
+	    display: block;
+	}
+
+	/* Change color of dropdown links on hover */
+	.dropdown-content a:hover {
+		color: #CA5F00;
+		border: none;
+	}
+
+	/* Show the dropdown menu on hover */
+	.dropdown:hover .dropdown-content {
+	    display: block;	  
+	}
+
+	/* Change the background color of the dropdown button when the dropdown content is shown */
+	.dropdown:hover .dropbtn {
+	    color: #CA5F00;
+	}
+
 
 
 /* ID's */
@@ -114,7 +184,8 @@ button:hover {
 #welcome{
 	background-image: url("/images/billetto-editorial.jpg");
 	width: 100%;
-	height: 100%;
+	/*height: 100%;*/
+	min-height: 625px;
 	background-repeat: no-repeat;
 	background-size: 100% 100%;
 }

@@ -74,24 +74,42 @@
             <div class="row">
                 <nav class="col-md-2" aria-label="Main Navigation">
                     <h5 id="quicknav-heading">Quick Navigation</h5>
-                    <dl>
-                        <dt><a href="#">About</a></dt>
-                        <dd><a href="#">Mission Statement</a></dd>
-                        <dd><a href="#">The Classroom</a></dd>
-                        <dd><a href="#">Our Success</a></dd>
-                        <dd><a href="#">Contact Us</a></dd>
-                        <dt><a href="#">Admission</a></dt>
-                        <dd><a href="#">Requirements</a></dd>
-                        <dd><a href="#">Preperation</a></dd>
-                        <dd><a href="#">Application</a></dd>
-                        <dd><a href="#">Review Process</a></dd>
-                        <dd><a href="#">Admittance</a></dd>
-                        <dt><a href="#">Courses</a></dt>
-                        <dd><a href="#">Corriculum</a></dd>
-                        <dd><a href="#">Electives</a></dd>
-                        <dd><a href="#">Programs</a></dd>
-                        <dt><a href="#">Donate</a></dt>
-                    </dl>
+                    <div class="dropdown-list">
+                        <div class="dropdown">
+                            <button class="dropbtn">About</button>
+                            <div class="dropdown-content">
+                                <a href="#">Mission Statement</a>
+                                <a href="#">The Classroom</a>
+                                <a href="#">Our Success</a>
+                                <a href="#">Contact Us</a>
+                            </div>    
+                        </div>
+                        <div class="dropdown">                    
+                            <button class="dropbtn">Admission</button>
+                            <div class="dropdown-content">
+                                <a href="#">Requirements</a>
+                                <a href="#">Preperation</a>
+                                <a href="#">Application</a>
+                                <a href="#">Review Process</a>
+                                <a href="#">Admittance</a>
+                            </div>
+                        </div>
+                        <div class="dropdown">
+                            <button class="dropbtn">Courses</button>
+                            <div class="dropdown-content">
+                                <a href="#">Corriculum</a>
+                                <a href="#">Electives</a>
+                                <a href="#">Programs</a>
+                            </div>
+                        </div>
+                        <div class="dropdown">    
+                            <button class="dropbtn">Donate</button>
+                            <div class="dropdown-content">
+                                <a href="#">Time</a>
+                                <a href="#">Finacially</a>
+                            </div>
+                        </div>
+                    </div>                    
                 </nav>
 
                 <main class="col-md-8">
