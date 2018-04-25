@@ -132,14 +132,16 @@ button:hover {
 
 /* Dropdown Content (Hidden by Default) */
 .dropdown-content {
-    display: none;
+    display: block;
+    visibility: hidden;
+    font-size: 0px;
     position: relative;
     background-color: black;
     min-width: 160px;
     width: 100%;
     transition-timing-function: ease;
-    -webkit-transition: top 2s; /* For Safari 3.1 to 6.0 */
-    transition: top 2s;
+    -webkit-transition: font-size 1s, visibility 1s 1s; /* For Safari 3.1 to 6.0 */
+    transition: font-size 1s, visibility 1s 1s;
 }
 
 	.dropdown button:hover{
@@ -163,6 +165,10 @@ button:hover {
 	/* Show the dropdown menu on hover */
 	.dropdown:hover .dropdown-content {
 	    display: block;	  
+	    font-size: 16px;
+	    visibility: visible;
+	    -webkit-transition: font-size 1s, visibility 1s 1s; /* For Safari 3.1 to 6.0 */
+	    transition: font-size 1s, visibility 1s 1s;
 	}
 
 	/* Change the background color of the dropdown button when the dropdown content is shown */

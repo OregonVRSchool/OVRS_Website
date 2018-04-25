@@ -6,6 +6,7 @@
  */
 
 require('./bootstrap');
+require('./quicknav');
 
 window.Vue = require('vue');
 

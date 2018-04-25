@@ -11,7 +11,7 @@
     <title>{{ config('app.name', 'OVRS') }}</title>
 
     <!-- Scripts -->
-    <script src="{{ asset('js/bootstrap.js') }}" defer></script>
+    <!-- <script src="{{ asset('js/bootstrap.js') }}" defer></script> -->
     <script src="{{ asset('js/app.js') }}" defer></script>
 
     <!-- Fonts -->
@@ -134,6 +134,19 @@
                         </div>
                     @show
                 </aside>
+            </div>
+            <div class="row">
+                <footer>
+                    <script type="text/javascript">
+                        $(document).ready(function(){
+                            $("dropdown").hover(function(){
+                                $(this).find("dropdown-content").css("background-color", "red");
+                            }, function(){
+                                $(this).css("visibility", "hidden");
+                            });
+                        });
+                    </script>
+                </footer>
             </div>
         </div>
     </div>
