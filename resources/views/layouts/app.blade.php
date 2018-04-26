@@ -13,6 +13,7 @@
     <!-- Scripts -->
     <!-- <script src="{{ asset('js/bootstrap.js') }}" defer></script> -->
     <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="https://fonts.gstatic.com">
@@ -76,17 +77,19 @@
                     <h5 id="quicknav-heading">Quick Navigation</h5>
                     <div class="dropdown-list">
                         <div class="dropdown">
-                            <button class="dropbtn">About</button>
-                            <div class="dropdown-content">
-                                <a href="#">Mission Statement</a>
-                                <a href="#">The Classroom</a>
-                                <a href="#">Our Success</a>
-                                <a href="#">Contact Us</a>
+                            <button class="dropbtn" data-toggle="collapse" data-target="#aboutCollapse" aria-controls="aboutCollapse">About</button>
+                            <div class="dropdown-content collapse multi-collapse" id="aboutCollapse">
+                                <ul>
+                                    <li><a href="#">Mission Statement</a></li>
+                                    <li><a href="#">The Classroom</a></li>
+                                    <li><a href="#">Our Success</a></li>
+                                    <li><a href="#">Contact Us</a></li>
+                                </ul>
                             </div>    
                         </div>
                         <div class="dropdown">                    
-                            <button class="dropbtn">Admission</button>
-                            <div class="dropdown-content">
+                            <button class="dropbtn" data-toggle="collapse" data-target="#admissionCollapse" aria-controls="admissionCollapse">Admission</button>
+                            <div class="dropdown-content collapse multi-collapse" id="admissionCollapse">
                                 <a href="#">Requirements</a>
                                 <a href="#">Preperation</a>
                                 <a href="#">Application</a>
@@ -95,16 +98,16 @@
                             </div>
                         </div>
                         <div class="dropdown">
-                            <button class="dropbtn">Courses</button>
-                            <div class="dropdown-content">
+                            <button class="dropbtn" data-toggle="collapse" data-target="#coursesCollapse" aria-controls="coursesCollapse">Courses</button>
+                            <div class="dropdown-content collapse multi-collapse" id="coursesCollapse">
                                 <a href="#">Corriculum</a>
                                 <a href="#">Electives</a>
                                 <a href="#">Programs</a>
                             </div>
                         </div>
                         <div class="dropdown">    
-                            <button class="dropbtn">Donate</button>
-                            <div class="dropdown-content">
+                            <button class="dropbtn" data-toggle="collapse" data-target="#donateCollapse" aria-controls="donateCollapse">Donate</button>
+                            <div class="dropdown-content collapse multi-collapse" id="donateCollapse">
                                 <a href="#">Time</a>
                                 <a href="#">Finacially</a>
                             </div>
@@ -137,15 +140,33 @@
             </div>
             <div class="row">
                 <footer>
-                    <script type="text/javascript">
+                    <!-- <script type="text/javascript">
                         $(document).ready(function(){
-                            $("dropdown").hover(function(){
-                                $(this).find("dropdown-content").css("background-color", "red");
+                            $(".dropdown").hover(function(){
+                                $(this).css({
+                                    "transition": "height 1s",
+                                    "height": "100%"
+                                });
+                                $(this).find(".dropdown-content").css({
+                                    "top": "0px",
+                                    "transition": "all .5s"
+                                    // "-webkit-transition": "font-size .5s, visibility .5s .5s",
+                                    // "transition": "font-size .5s, visibility .5s .5s",
+                                    // "visibility": "visible"
+                                });
                             }, function(){
-                                $(this).css("visibility", "hidden");
+                                $(this).css({
+                                    "height": "0%"
+                                });
+                                $(this).find(".dropdown-content").css({
+                                    "top": "-120px"
+                                    // "-webkit-transition": "visibility 0s 0s, font-size .5s",
+                                    // "transition": "visibility 0s 0s, font-size .5s",
+                                    // "visibility": "hidden"
+                                });
                             });
                         });
-                    </script>
+                    </script> -->
                 </footer>
             </div>
         </div>
