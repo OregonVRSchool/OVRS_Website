@@ -190,6 +190,12 @@ button:hover {
 	font-style: italic;
 	font-weight: 600;
 }
+
+.navbar{
+	position: fixed;
+	top: 0;
+	width: 100%;
+}
 /* bootstrap overrides */
 .card{
 	margin-top: 50px;
