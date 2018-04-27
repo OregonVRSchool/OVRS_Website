@@ -119,8 +119,9 @@
                 <aside class="col-md-2" id="relatedArticles">
                     @section('complement')
                         <h3>Related Articles</h3>
-                        <div class="carosel">
-                            <a href="#">
+                        <a href="#">
+                            <div class="carosel">
+                            
                                 <img src="http://via.placeholder.com/180x120">
                                 <div>
                                     <div class="title">
@@ -130,8 +131,8 @@
                                         Some discription of the image
                                     </p>
                                 </div>
-                            </a>
-                        </div>
+                            </div>
+                        </a>
                     @show
                 </aside>                
             </div>

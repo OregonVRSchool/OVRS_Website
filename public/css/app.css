@@ -92,6 +92,7 @@ aside {
 		border: 1px solid #CA5F00;
 	}
 
+
 		aside .carosel img {
 			width: 100%;
 		}
@@ -107,6 +108,8 @@ aside {
 
 		aside .carosel p {
 			padding-top: 1rem;
+			padding-bottom: 1rem;
+			margin: 0px;
 		}
 
 		aside .carosel:hover p{
