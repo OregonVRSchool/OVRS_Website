@@ -25,7 +25,7 @@
 </head>
 <body>
     <div id="app">
-        <header class="navbar navbar-expand-md navbar-laravel">
+        <header class="navbar navbar-expand-md navbar-laravel fixed-top">
             <div class="container">                
 
                 <div class="collapse navbar-collapse" id="navbarProfileContent">
@@ -71,9 +71,9 @@
                 </div>
             </div>
         </header>
-        <div class="container-fluid">
+        <div class="container-fluid" id="mainContent">
             <div class="row">
-                <nav class="col-md-2" aria-label="Main Navigation">
+                <nav class="col-md-2 quicknav" aria-label="Main Navigation">
                     <h5 id="quicknav-heading">Quick Navigation</h5>
                     <div class="dropdown-list">
                         <div class="dropdown">
@@ -115,58 +115,42 @@
                     </div>                    
                 </nav>
 
-                <main class="col-md-8">
-                    @section('content')
-                    @show
-                </main>
-                <aside class="col-md-2">
+                
+                <aside class="col-md-2" id="relatedArticles">
                     @section('complement')
                         <h3>Related Articles</h3>
                         <div class="carosel">
-                            <a href="">
-                                <img src="">
+                            <a href="#">
+                                <img src="http://via.placeholder.com/180x120">
                                 <div>
                                     <div class="title">
-                                        
+                                        This is a Title
                                     </div>
                                     <p>
-                                        
+                                        Some discription of the image
                                     </p>
                                 </div>
                             </a>
                         </div>
                     @show
-                </aside>
+                </aside>                
+            </div>
+            <div class="row justify-content-md-center">
+                <main class="col-md-8 col-md-offset-2">
+                    @section('content')
+                    @show
+                </main>
             </div>
             <div class="row">
                 <footer>
-                    <!-- <script type="text/javascript">
-                        $(document).ready(function(){
-                            $(".dropdown").hover(function(){
-                                $(this).css({
-                                    "transition": "height 1s",
-                                    "height": "100%"
-                                });
-                                $(this).find(".dropdown-content").css({
-                                    "top": "0px",
-                                    "transition": "all .5s"
-                                    // "-webkit-transition": "font-size .5s, visibility .5s .5s",
-                                    // "transition": "font-size .5s, visibility .5s .5s",
-                                    // "visibility": "visible"
-                                });
-                            }, function(){
-                                $(this).css({
-                                    "height": "0%"
-                                });
-                                $(this).find(".dropdown-content").css({
-                                    "top": "-120px"
-                                    // "-webkit-transition": "visibility 0s 0s, font-size .5s",
-                                    // "transition": "visibility 0s 0s, font-size .5s",
-                                    // "visibility": "hidden"
-                                });
-                            });
-                        });
-                    </script> -->
+                    <div class="container">
+                        <ul>
+                            <li><a href="#">here</a></li>
+                            <li><a href="#">there</a></li>
+                            <li><a href="#">the other thing</a></li>
+                        </ul>
+                        This is our address and then here is our social links :)
+                    </div>
                 </footer>
             </div>
         </div>
