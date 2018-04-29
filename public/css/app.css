@@ -8,6 +8,7 @@ body {
     background-image: linear-gradient(to right, #2e2e2e 1px, transparent 1px), 
     				  linear-gradient(to bottom, #2e2e2e 1px, transparent 1px);
     background-attachment: fixed;
+    cursor: default;
 }
 
 h3{
