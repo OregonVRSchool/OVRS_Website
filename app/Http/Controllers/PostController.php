@@ -6,8 +6,13 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Permissions;
 
-class PostController extends Controller
+class PostController extends BaseController
 {
+	public function __construct()
+    {
+      parent::__construct();
+    }
+    
     public function apply(Request $request)
     {
     	$permission = Permissions::where('title', $request['Position']);

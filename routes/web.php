@@ -11,9 +11,7 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'GetController@index')->name('home');
 
 Route::get('/apply', 'GetController@apply')->name('apply');
 Route::post('/apply', 'PostController@apply');

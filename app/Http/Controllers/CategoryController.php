@@ -7,10 +7,14 @@ use App\Page;
 use App\Traits\SeoURL;
 use Illuminate\Http\Request;
 
-class CategoryController extends Controller
+class CategoryController extends BaseController
 {
 	use SeoURL;
     
+    public function __construct()
+    {
+      parent::__construct();
+    }
     /**
      * Return a Category index page
      */

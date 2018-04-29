@@ -74,9 +74,11 @@
         <div class="container-fluid" id="mainContent">
             <div class="row">
                 <nav class="col-md-2 quicknav" aria-label="Main Navigation">
-                    <h5 id="quicknav-heading">Quick Navigation</h5>
+                    @include('partials.quickNav')
+                    <!-- <h5 id="quicknav-heading">Quick Navigation</h5>
                     <div class="dropdown-list">
                         <div class="dropdown">
+
                             <button class="dropbtn" data-toggle="collapse" data-target="#aboutCollapse" aria-controls="aboutCollapse">About</button>
                             <div class="dropdown-content collapse multi-collapse" id="aboutCollapse">
                                 <ul>
@@ -112,7 +114,7 @@
                                 <a href="#">Finacially</a>
                             </div>
                         </div>
-                    </div>                    
+                    </div>   -->                  
                 </nav>
 
                 

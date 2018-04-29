@@ -8,9 +8,15 @@ use App\Traits\SeoURL;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 
-class PageController extends Controller
+class PageController extends BaseController
 {
     use SeoURL;
+
+    public function __construct()
+    {
+      parent::__construct();
+    }
+    
     /**
      * Show the application dashboard.
      *

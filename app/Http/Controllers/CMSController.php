@@ -7,9 +7,15 @@ use App\Page;
 use App\Category;
 use App\Traits\SiteMap;
 
-class CMSController extends Controller
+class CMSController extends BaseController
 {
     use SiteMap;
+
+    public function __construct()
+    {
+      parent::__construct();
+    }
+    
     public function index()
     {
     	return view('cms');
