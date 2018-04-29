@@ -244,6 +244,7 @@ button {
 	background-color: gray;
 	padding: 1em;
 	min-height: 545px;
+	margin-top: 20px;
 }
 
 #relatedArticles {
