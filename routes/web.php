@@ -13,6 +13,8 @@
 
 Route::get('/', 'GetController@index')->name('home');
 
+Auth::routes();
+
 Route::get('/apply', 'GetController@apply')->name('apply');
 Route::post('/apply', 'PostController@apply');
 
@@ -34,8 +36,6 @@ Route::post('/cms/edit/{category}/{page}', 'PageController@update');
 Route::get('/cms/{category}/index', 'CategoryController@index');
 Route::get('/{category}/{page}', 'PageController@index')->name('page');
 
-
-Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 

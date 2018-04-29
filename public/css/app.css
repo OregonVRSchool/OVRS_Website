@@ -235,6 +235,8 @@ button {
 
 #mainContent {
 	padding-top: 70px;
+	margin-bottom: 50px;
+	height: 100vh;
 }
 
 #page {
