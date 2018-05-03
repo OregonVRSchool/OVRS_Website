@@ -203,7 +203,7 @@ button {
     position: relative;
     display: block;
     width: 100%;
-    overflow: hidden;
+    overflow: visible;
     transition: height .5s;
 
 }
