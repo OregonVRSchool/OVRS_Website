@@ -24,9 +24,9 @@
 						{!! Form::open(array('url' => '#')) !!} 
 							<div class="row">
 								<div class="col-md-4">
-									<button type="submit" name="Position" value="volenteer">
+									<button type="submit" name="Position" value="volunteer">
 										<div class="title">
-											Volenteer
+											Volunteer
 										</div>
 										<div>
 											<img src="">

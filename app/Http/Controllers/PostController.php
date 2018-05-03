@@ -15,11 +15,12 @@ class PostController extends BaseController
     
     public function apply(Request $request)
     {
-    	$permission = Permissions::where('title', $request['Position']);
+    	$permission = Permissions::where('title', $request['Position'])->first();
+
     	$user = Auth::user();
     	$user->permissions_id = $permission->id;
     	$user->save();
 
-    	return Auth::user();
+    	return redirect()->route('home');
     }
 }

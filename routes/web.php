@@ -37,7 +37,7 @@ Route::get('/cms/{category}/index', 'CategoryController@index');
 Route::get('/{category}/{page}', 'PageController@index')->name('page');
 
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', 'HomeController@index');
 
 // Route::get('/creator/page', 'PageController@Creator')->name('page-creator');
 // Route::post('/creator/page', 'PageController@Create');
