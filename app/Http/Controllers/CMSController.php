@@ -32,8 +32,8 @@ class CMSController extends BaseController
     {
 
     	$categories = Category::all();
-        $map = $this->GetMap();
+        // $map = $this->GetMap();
         
-    	return view('partials.cms.page')->with(['map' => $map]);
+    	return view('partials.cms.page');
     }
 }
