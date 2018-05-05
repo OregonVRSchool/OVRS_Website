@@ -46,7 +46,7 @@ class PageTableSeeder extends Seeder
         	foreach ($pagesData as $page) {
         		$pages[] = array(
         			'title' => $page,
-        			'content' => 'this is the defult content',
+        			'content' => 'this is the default content',
         			'url' =>  $this->cleanstring($page),
         			'category_id' => $categoryID
         		);

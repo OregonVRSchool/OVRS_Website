@@ -20,7 +20,7 @@ Route::post('/apply', 'PostController@apply');
 Route::get('/{category}/{page}', 'PageController@index')->name('page');
 
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', 'HomeController@index');
 
 
 Auth::routes();

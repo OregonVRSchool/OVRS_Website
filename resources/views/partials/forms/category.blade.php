@@ -10,6 +10,7 @@
 				    	{!! Form::open(array('url' => '#')) !!}
 				    		<div class="card-header">
 								Category Name
+								<a class="back" href="/cms">Back to CMS</a>
 							</div>
 							<div class="card-body"> 
 								@if(isset($category))

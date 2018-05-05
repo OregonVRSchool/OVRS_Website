@@ -28,7 +28,7 @@
                 </aside>                
             </div>
             <div class="row justify-content-md-center">
-                <main class="col-md-8 col-md-offset-2">
+                <main class="col-md-8 col-md-offset-2" id="main">
                     @section('content')
                     @show
                 </main>

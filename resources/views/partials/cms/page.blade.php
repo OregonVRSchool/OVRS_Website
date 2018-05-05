@@ -12,8 +12,9 @@
                 </div>
                 <div class="card-body">
                 	<dl>
-                		@foreach($map as $category)                        
-                            <dt><a href="/cms/edit/{{ $category->url }}/{{ $category->index->url }}">{{ $category->title }}</a></dt>
+                		@foreach($map as $category)  
+                                                 
+                            <dt><a href="/cms/edit/{{ $category->url }}">{{ $category->title }}</a></dt>
                             @foreach($category->pages as $page)
                                 <dd><a href="/cms/edit/{{ $category->url }}/{{ $page->url }}">{{ $page->title }}</a></dd>
                             @endforeach

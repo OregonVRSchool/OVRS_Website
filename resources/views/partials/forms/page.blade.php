@@ -21,23 +21,30 @@
 			    		@if (isset($page))	
 			    			@if ($page->title != 'index')
 			    				<div class="card-header"> 	
+			    					Edit Page
+			    					<a class="back" href="/cms">Back to CMS</a>
+			    				</div>
+				    			<div class="card-body">
 				    				{!! Form::label('title', 'Title'); !!}		
 						    		{!! Form::text('title', $page->title); !!} 
 					    			{!! Form::select('category', $dropdownlist, $page->category_id, ['placeholder' => 'Category']); !!}
-					    		</div>
+					    	@else
+				    			<div class="card-body">
+
 				    		@endif
-				    		<div class="card-body">
 						    	{!! Form::label('content', 'Content'); !!}   
 						    	{!! Form::textarea('content', $page->content); !!}
 						    	{!! Form::submit('Update Page'); !!}
 						    </div>
 					    @else
 					    	<div class="card-header"> 
-						    	{!! Form::label('title', 'Title'); !!}
-						    	{!! Form::text('title'); !!} 
-					    		{!! Form::select('category', $dropdownlist, null, ['placeholder' => 'Category']); !!}
+						    	New Page
+		    					<a class="back" href="/cms">Back to CMS</a>
 					    	</div>
 					    	<div class="card-body">
+					    		{!! Form::label('title', 'Title'); !!}
+						    	{!! Form::text('title'); !!} 
+					    		{!! Form::select('category', $dropdownlist, null, ['placeholder' => 'Category']); !!}
 						    	{!! Form::label('content', 'Content'); !!}   
 						    	{!! Form::textarea('content'); !!}
 						    	{!! Form::submit('Create Page'); !!}
