@@ -341,6 +341,9 @@ button {
 	left: 0;
 	z-index: 80;
 }
+	.quicknav-heading{
+		text-align: center;
+	}
 
 
 /* Gets rid of the blue outline on the selected accordian button */

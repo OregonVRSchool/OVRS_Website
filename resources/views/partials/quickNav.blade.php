@@ -1,4 +1,4 @@
-<h5 id="quicknav-heading">Quick Navigation</h5>
+<h3 class="quicknav-heading">Quick Navigation</h3>
 <div class="dropdown-list">
     @foreach($map as $category)
     
