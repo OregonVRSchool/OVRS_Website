@@ -27,7 +27,7 @@ class GetController extends BaseController
 
     public function category($category, $page)
     {
-        $page = Page::where('title', $page)->first();
+        $page = Page::where('url', $page)->first();
 
         return view('layouts/page', ['page' => $page]);
     }

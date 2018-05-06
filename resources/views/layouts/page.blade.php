@@ -2,7 +2,7 @@
 
 @section('content')
 	<div id="page"> 
-		<div id="{{ $category->title }}">
+		<div id="{{ $page->category->title }}">
 			<h1 class="title">{{ $page->category->title }}</h1>
 					    	
 			<div id="{!! $page->title !!}">
