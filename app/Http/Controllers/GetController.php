@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use App\User;
 
 class GetController extends BaseController
 {
@@ -24,5 +26,10 @@ class GetController extends BaseController
     public function role($role)
     {
     	return view('auth.register');
+    }
+
+    public function test()
+    {
+        return view('test');
     }
 }

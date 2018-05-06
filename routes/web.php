@@ -11,6 +11,8 @@
 |
 */
 
+Route::get('/test', 'GetController@test');
+
 Route::get('/', 'GetController@index')->name('home');
 
 Route::get('/apply', 'GetController@apply')->name('apply');
@@ -25,7 +27,7 @@ Route::get('/home', 'HomeController@index');
 
 Auth::routes();
 
-Route::group(['middleware' => ['auth', 'admin']], function() {
+Route::group(['middleware' => ['auth', 'superAdmin']], function() {
     Route::get('/cms', 'CMSController@index')->name('cms');
 
 	Route::get('/cms/create/page', 'PageController@Creator')->name('page-creator');

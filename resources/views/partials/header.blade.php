@@ -1,3 +1,4 @@
+
 <div id="app">
     <header class="navbar navbar-expand-md navbar-laravel fixed-top">
         <div class="container">                
@@ -26,9 +27,11 @@
                             </a>
 
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="{{ route('cms') }}">
-                                    CMS
-                                </a>
+                                @if(Auth::user()->permission->title == 'superAdmin')
+                                    <a class="dropdown-item" href="{{ route('cms') }}">
+                                        CMS
+                                    </a>
+                                @endif
                                 <a class="dropdown-item" href="{{ route('logout') }}"
                                    onclick="event.preventDefault();
                                                  document.getElementById('logout-form').submit();">
