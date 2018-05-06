@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\User;
+use App\Category;
 
 class GetController extends BaseController
 {
@@ -20,7 +21,14 @@ class GetController extends BaseController
     
     public function apply()
     {
-    	return view('test');
+    	return view('partials.forms.apply');
+    }
+
+    public function category($category, $page)
+    {
+        $category = Category::where('title', $category)->first();
+
+        return view('layouts/page', ['category' => $category, 'page' => $category->pages()->where('url', $page)->first()]);
     }
 
     public function role($role)

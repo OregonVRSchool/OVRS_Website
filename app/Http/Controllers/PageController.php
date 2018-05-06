@@ -22,14 +22,14 @@ class PageController extends BaseController
      *
      * @return \Illuminate\Http\Response
      */
-    public function index($category, $page)
-    {
-      $page = Category::where('url', $category)->first()
-                 ->pages()->where('url', $page)->first();
+    // public function index($category, $page)
+    // {
+    //   $page = Category::where('url', $category)->first()
+    //              ->pages()->where('url', $page)->first();
 
 
-      return view('layouts/page', ['page' => $page]);
-    }
+    //   return view('layouts/page', ['page' => $page]);
+    // }
 
     /**
      * The page creator template
