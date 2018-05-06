@@ -3,7 +3,7 @@
 @section('content')
 	<div id="page"> 
 		<div id="{{ $category->title }}">
-			<h1 class="title">{{ $category->title }}</h1>
+			<h1 class="title">{{ $page->category->title }}</h1>
 					    	
 			<div id="{!! $page->title !!}">
 		    	<h3 class="title">

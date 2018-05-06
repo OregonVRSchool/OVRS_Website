@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\User;
 use App\Category;
+use App\Page;
 
 class GetController extends BaseController
 {
@@ -26,9 +27,9 @@ class GetController extends BaseController
 
     public function category($category, $page)
     {
-        $category = Category::where('title', $category)->first();
+        $page = Page::where('title', $page)->first();
 
-        return view('layouts/page', ['category' => $category, 'page' => $category->pages()->where('url', $page)->first()]);
+        return view('layouts/page', ['page' => $page]);
     }
 
     public function role($role)
