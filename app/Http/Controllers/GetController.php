@@ -39,6 +39,6 @@ class GetController extends BaseController
 
     public function test()
     {
-        return view('test');
+        return view('partials.forms.applications.student.applicantInformation');
     }
 }
