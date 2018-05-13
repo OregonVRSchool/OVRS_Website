@@ -15,13 +15,15 @@
 					        </ul>
 					    </div>
 					@endif
-				    <div id="category-creator">
+				    <div id="@section('page-id') @show">
 				    	{!! Form::open(array('url' => '#')) !!}
 				    		<div class="card-header">
-				    			Applicant Information
+				    			@section('page-title')
+				    			@show
 				    		</div>
 				    		<div class="card-body">
-				    			
+				    			@section('form-content')
+				    			@show
 				    		</div>
 						{!! Form::close() !!}
 				    </div>
