@@ -4,9 +4,13 @@
         <div class="container-fluid" id="mainContent">
             <div class="row">
                 <nav class="col-md-2 quicknav" aria-label="Main Navigation">
-                    @include('partials.quickNav')
+                    @section('quicknav')
+                        <h3 class="quicknav-heading">Quick Navigation</h3>
+                        <div class="dropdown-list">                        
+                            @include('partials.quickNav')
+                            @show
+                        </div>  
                 </nav>
-
                 
                 <aside class="col-md-2" id="relatedArticles">
                     @section('complement')

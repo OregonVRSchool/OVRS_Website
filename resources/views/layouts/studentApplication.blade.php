@@ -34,6 +34,18 @@
      
 @endsection
 
+@section('quicknav')
+	@parent
+	<div class="dropdown">        
+        <button class="dropbtn" data-toggle="collapse" data-target="#AndrewCollapse" aria-controls="AndrewCollapse" aria-expanded="true">Andrew</button>
+        <div class="dropdown-content collapse multi-collapse show" id="AndrewCollapse">
+            <ul>                
+                <li><a href="#">one</a></li>
+            </ul>
+        </div>    
+    </div>
+@endsection
+
 @section('complement')
     @parent
 

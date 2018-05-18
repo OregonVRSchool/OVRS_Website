@@ -24,6 +24,7 @@ Route::get('/{category}/{page}', 'GetController@category')->name('category');
 
 Route::get('/home', 'HomeController@index');
 
+Route::get('/applications', 'GetController@applications')->name('applications');
 
 Auth::routes();
 

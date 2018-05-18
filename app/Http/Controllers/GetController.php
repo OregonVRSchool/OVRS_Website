@@ -25,6 +25,11 @@ class GetController extends BaseController
     	return view('partials.forms.apply');
     }
 
+    public function applications()
+    {
+        return view('layouts.applicationsStatus');
+    }
+
     public function category($category, $page)
     {
         $page = Page::where('url', $page)->first();
@@ -39,6 +44,6 @@ class GetController extends BaseController
 
     public function test()
     {
-        return view('partials.forms.applications.student.applicantInformation');
+        return view('partials.forms.applications.student.information');
     }
 }
