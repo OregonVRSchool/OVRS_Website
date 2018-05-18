@@ -18,13 +18,15 @@ Route::get('/', 'GetController@index')->name('home');
 Route::get('/apply', 'GetController@apply')->name('apply');
 Route::post('/apply', 'PostController@apply');
 
-
 Route::get('/{category}/{page}', 'GetController@category')->name('category');
 
 
 Route::get('/home', 'HomeController@index');
 
 Route::get('/applications', 'GetController@applications')->name('applications');
+Route::get('/applications/new/student', 'GetController@newStudent')->name('application-student');
+
+
 
 Auth::routes();
 

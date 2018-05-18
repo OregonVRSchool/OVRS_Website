@@ -37,6 +37,11 @@ class GetController extends BaseController
         return view('layouts/page', ['page' => $page]);
     }
 
+    public function newStudent()
+    {
+        return view('partials.forms.applications.student.new');
+    }
+
     public function role($role)
     {
     	return view('auth.register');

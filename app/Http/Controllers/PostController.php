@@ -21,6 +21,6 @@ class PostController extends BaseController
     	$user->permissions_id = $permission->id;
     	$user->save();
 
-    	return redirect()->route('home');
+    	return redirect()->route('application-'.$request['Position']);
     }
 }
