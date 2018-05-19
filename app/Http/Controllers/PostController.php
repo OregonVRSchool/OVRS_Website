@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Permissions;
+use App\RequestPermissions;
 
 class PostController extends BaseController
 {
@@ -15,11 +16,12 @@ class PostController extends BaseController
     
     public function apply(Request $request)
     {
-    	$permission = Permissions::where('title', $request['Position'])->first();
+    	
 
-    	$user = Auth::user();
-    	$user->permissions_id = $permission->id;
-    	$user->save();
+        $permissionRequest = new RequestPermissions;
+        $permissionRequest->user_id = Auth::user()->id;
+        $permissionRequest->new_permissions_id = Permissions::where('title', $request['Position'])->first()->id;
+    	$permissionRequest->save();
 
     	return redirect()->route('application-'.$request['Position']);
     }
