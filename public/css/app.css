@@ -330,6 +330,17 @@ button {
 		float: right;
 	}
 
+	.card-body label {
+		margin-bottom: .5em;
+	}
+
+	.card-body input {
+		margin-top: 0px;
+		width: 100%;
+		border: none;
+		border-radius: 5px;
+	}
+
 .dropdown-menu{
 	color: #FFC900;
 	background-color: black;
