@@ -31,4 +31,9 @@ class User extends Authenticatable
     {
         return $this->belongsTo('App\Permissions', 'permissions_id');
     }
+
+    public function permissionRequests()
+    {
+        return $this->hasMany('App\RequestPermissions');
+    }
 }
