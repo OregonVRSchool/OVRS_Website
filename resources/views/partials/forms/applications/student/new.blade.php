@@ -18,3 +18,17 @@
 	{!! Form::label('grade', 'Grade') !!}
 	{!! Form::text ('grade') !!}
 @endsection
+
+@section('buttonRow')
+	<div class="row">
+		<div class="col-md-4">
+			
+		</div>
+		<div class="col-md-4">
+			<button>Middle</button>
+		</div>
+		<div class="col-md-4">
+			<button>Right</button>
+		</div>
+	</div>
+@overwrite

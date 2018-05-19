@@ -24,7 +24,11 @@
 				    		<div class="card-body">
 				    			@section('form-content')
 				    			@show
+				    			@section('buttonRow')
+				    				@include('partials.forms.applications.parts.submitButtonRow')
+				    			@show	
 				    		</div>
+				    		
 						{!! Form::close() !!}
 				    </div>
 			    </div>
