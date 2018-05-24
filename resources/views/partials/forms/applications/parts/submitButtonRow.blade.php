@@ -1,11 +1,11 @@
-<div class="row">
+<div id="submit-buttons" class="row">
 	<div class="col-md-4">
-		<button>left</button>
+		<button name="back">Save and Back</button>
 	</div>
 	<div class="col-md-4">
-		<button>Middle</button>
+		<button name="save">Save</button>
 	</div>
 	<div class="col-md-4">
-		<button>Right</button>
+		<button name="next">Save and Continue</button>
 	</div>
 </div>

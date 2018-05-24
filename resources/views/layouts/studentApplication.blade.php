@@ -15,7 +15,7 @@
 					        </ul>
 					    </div>
 					@endif
-				    <div id="@section('page-id') @show">
+				    <div @yield('page-id')>
 				    	{!! Form::open(array('url' => '#')) !!}
 				    		<div class="card-header">
 				    			@section('page-title')
