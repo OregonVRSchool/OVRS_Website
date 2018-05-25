@@ -9,18 +9,27 @@
 @endsection
 
 @section('form-content')
-	{!! Form::label('sports', 'Sports') !!}
-	{!! Form::text ('sports') !!}
-	{!! Form::label('activities', 'Activities') !!}
-	{!! Form::text ('activities') !!}
-	{!! Form::label('performingArts', 'Performing Arts') !!}
-	{!! Form::text ('performingArts') !!}
-	{!! Form::label('instruments', 'Instruments') !!}
-	{!! Form::text ('instruments') !!}
-	{!! Form::label('computerSkills', 'Computer Skills') !!}
-	{!! Form::text ('computerSkills') !!}
-	{!! Form::label('typingSpeed', 'Typing Speed') !!}
-	{!! Form::text ('typingSpeed') !!}
+
+	<div class="row">
+		<div class="col-md-6">
+			{!! Form::label('sports', 'Sports') !!}
+			{!! Form::text ('sports') !!}
+			{!! Form::label('activities', 'Activities') !!}
+			{!! Form::text ('activities') !!}
+			{!! Form::label('performingArts', 'Performing Arts') !!}
+			{!! Form::text ('performingArts') !!}
+		</div>
+		<div class="col-md-6">
+			{!! Form::label('instruments', 'Instruments') !!}
+			{!! Form::text ('instruments') !!}
+			{!! Form::label('computerSkills', 'Computer Skills') !!}
+			{!! Form::text ('computerSkills') !!}
+			{!! Form::label('typingSpeed', 'Typing Speed') !!}
+			{!! Form::text ('typingSpeed') !!}
+		</div>
+	</div>
+	
+	
 	{!! Form::label('awards', 'Please describe any awards, honors or accomplishments you have achieved') !!}
-	{!! Form::text ('awards') !!}
+	{!! Form::textarea ('awards', null, ['size' => '75x3']) !!}
 @endsection
