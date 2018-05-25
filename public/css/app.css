@@ -170,6 +170,14 @@ form label, form input, form textarea{
 		margin-bottom: 1em;
 	}
 
+	form .subsection-header {
+		margin-top: 1.5rem;
+		width: 100%;
+		font-size: 18px;
+		font-weight: 600;
+		border-bottom: 1px solid black;
+	}
+
 button {
 	width: 100%;
 	/*height: 100%;*/
