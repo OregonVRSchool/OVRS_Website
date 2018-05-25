@@ -12,13 +12,14 @@ if (env('APP_ENV') == 'production') {
 
     $connection = 'pgsql';
 
-}else {
+} else {
     $host = '';
     $username = '';
     $password = '';
     $database = '';
 
     $connection = env('DB_CONNECTION', 'mysql');
+    
 }
 
 return [
