@@ -290,6 +290,7 @@ button {
 	
 	#new-student .dropdown-section {
 		text-align: center;
+		margin-top: 1.5rem;
 	}
 	
 	#new-student form label {
