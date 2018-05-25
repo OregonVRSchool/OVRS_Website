@@ -10,9 +10,9 @@
 
 @section('form-content')
 	{!! Form::label('studentStrengths', 'Describe the students strengths') !!}
-	{!! Form::text ('studentStrengths') !!}
+	{!! Form::textarea ('studentStrengths', null, ['size' => '50x3']) !!}
 	{!! Form::label('studentNeeds', 'Describe the student needs') !!}
-	{!! Form::text ('studentNeeds') !!}
+	{!! Form::textarea ('studentNeeds', null, ['size' => '50x3']) !!}
 	{!! Form::label('learningDisability', 'Does the student have a learning disability') !!}
-	{!! Form::text ('learningDisability') !!}
+	{!! Form::textarea ('learningDisability', null, ['size' => '50x3']) !!}
 @endsection
