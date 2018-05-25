@@ -9,7 +9,7 @@ id="new-student"
 @endsection
 
 @section('form-content')
-	<div class="row selectors">
+	<div class="row">
 		<div class="col-md-6"> 
 			{!! Form::label('firstName', 'First Name') !!}
 			{!! Form::text ('firstName') !!}
@@ -19,7 +19,7 @@ id="new-student"
 			{!! Form::text ('lastName') !!}
 		</div>
 	</div>
-	<div class="row selectors">
+	<div class="row dropdown-section">
 		<div class="col-md-6"> 
 			{!! Form::label('year', 'Applying for year:') !!}
 			{!! Form::select ('year', ['2020' => '2020', '2021' => '2021']) !!}

@@ -288,7 +288,7 @@ button {
 	/*border: 1px solid red;*/
 }
 	
-	#new-student .selectors {
+	#new-student .dropdown-section {
 		text-align: center;
 	}
 	
@@ -299,7 +299,7 @@ button {
 	}
 
 #submit-buttons {
-	margin-top: 2rem;
+	margin-top: 1rem;
 	font-size: 15px;
 }
 	#submit-buttons button {
