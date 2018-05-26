@@ -49,6 +49,6 @@ class GetController extends BaseController
 
     public function test()
     {
-        return view('partials.forms.applications.student.recommendation');
+        return view('partials.forms.applications.student.electronicSignature');
     }
 }

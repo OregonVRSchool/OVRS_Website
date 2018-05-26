@@ -8,6 +8,8 @@
 	Electronic Signature
 @endsection
 
+@section('form-content')
+
 	<div class="subsection-header">
 		PARENT AUTHORIZATION
 	</div>
@@ -41,4 +43,5 @@
 
 	{!! Form::label('releaseForm', 'Permission for Release of Records Form') !!}
 	{!! Form::file ('releaseForm', null) !!}
+	
 @endsection
