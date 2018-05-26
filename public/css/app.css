@@ -319,6 +319,10 @@ button {
 		border-radius: 5px;
 	}
 
+#student-application select{
+	margin-bottom: 0px;
+}
+
 /* Classes */
 .apply .card-body {
 	padding: 0px;

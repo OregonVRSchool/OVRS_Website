@@ -49,6 +49,6 @@ class GetController extends BaseController
 
     public function test()
     {
-        return view('partials.forms.applications.student.strengthsNeeds');
+        return view('partials.forms.applications.student.householdInfo');
     }
 }

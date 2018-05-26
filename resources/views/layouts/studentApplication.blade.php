@@ -2,7 +2,7 @@
 
 @section('content')
 	@parent
-	<div class="container">
+	<div class="container" id="student-application">
     	<div class="row justify-content-center">
         	<div class="col-md-10">
 				<div class="card">
