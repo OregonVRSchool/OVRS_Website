@@ -9,11 +9,13 @@
 @endsection
 
 @section('form-content')
-	{!! Form::label('instructions', 'This form should be completed by the student in his/her own words.') !!}
+<div class="subsection-header">
+	This form should be completed by the student in his/her own words.
+</div>
 	{!! Form::label('questionOne', 'Why do you want to attend Oregon VR School') !!}
-	{!! Form::text ('questionOne') !!}
+	{!! Form::textarea ('questionOne', null, ["size" => "75x4"]) !!}
 	{!! Form::label('questionTwo', 'What personal qualities and talents will you bring to Oregon VR School') !!}
-	{!! Form::text ('questionTwo') !!}
-	{!! Form::label('questionThree', 'Why do you want to attend Oregon VR School') !!}
-	{!! Form::text ('questionThree') !!}
+	{!! Form::textarea ('questionTwo', null, ["size" => "75x4"]) !!}
+	{!! Form::label('questionThree', 'Describe yourself as a student. How will the course of studies help you achieve your goals') !!}
+	{!! Form::textarea ('questionThree', null, ["size" => "75x4"]) !!}
 @endsection

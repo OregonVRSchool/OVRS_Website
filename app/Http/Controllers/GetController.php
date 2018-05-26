@@ -49,6 +49,6 @@ class GetController extends BaseController
 
     public function test()
     {
-        return view('partials.forms.applications.student.parentQuestionair');
+        return view('partials.forms.applications.student.studentQuestionair');
     }
 }
