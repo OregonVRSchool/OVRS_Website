@@ -10,17 +10,26 @@
 
 @section('form-content')
 	{!! Form::label('hasSiblings', 'Does the applicant have any other relatives who currently attend, have attended or have graduated from our school') !!}
-	{!! Form::text ('hasSiblings') !!}
-	{!! Form::label('firstName', 'First Name') !!}
-	{!! Form::text ('firstName') !!}
-	{!! Form::label('lastName', 'Last Name') !!}
-	{!! Form::text ('lastName') !!}
-	{!! Form::label('userName', 'user Name') !!}
-	{!! Form::text ('userName') !!}
-	{!! Form::label('studnetID', 'StudnetID') !!}
-	{!! Form::text ('studnetID') !!}
-	{!! Form::label('relationship', 'Relationship to applicant') !!}
-	{!! Form::text ('relationship') !!}
-	{!! Form::label('yearsAttended', 'Years Attended') !!}
-	{!! Form::text ('yearsAttended') !!}
+	{!! Form::select ('hasSiblings', ["Y" => "Yes", "N" => "No"], "Y") !!}
+
+	<div class="row">
+		<div class="col-md-6">
+			{!! Form::label('firstName', 'First Name') !!}
+			{!! Form::text ('firstName') !!}
+			{!! Form::label('lastName', 'Last Name') !!}
+			{!! Form::text ('lastName') !!}
+			{!! Form::label('userName', 'User Name') !!}
+			{!! Form::text ('userName') !!}
+		</div>
+		<div class="col-md-6">
+			{!! Form::label('studnetID', 'StudnetID') !!}
+			{!! Form::text ('studnetID') !!}
+			{!! Form::label('relationship', 'Relationship to Applicant') !!}
+			{!! Form::text ('relationship') !!}
+			{!! Form::label('yearsAttended', 'Years Attended') !!}
+			{!! Form::text ('yearsAttended') !!}
+		</div>
+	</div>
+	
+	
 @endsection
