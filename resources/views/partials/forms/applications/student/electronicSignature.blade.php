@@ -43,5 +43,19 @@
 
 	{!! Form::label('releaseForm', 'Permission for Release of Records Form') !!}
 	{!! Form::file ('releaseForm', null) !!}
-	
+
 @endsection
+
+@section('buttonRow')
+	<div id="submit-buttons" class="row">
+		<div class="col-md-4">
+			<button name="back">Save and Back</button>
+		</div>
+		<div class="col-md-4">
+			<button name="save">Save</button>
+		</div>
+		<div class="col-md-4">
+			<button name="next">Save and Submit</button>
+		</div>
+	</div>
+@overwrite

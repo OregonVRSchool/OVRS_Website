@@ -44,7 +44,16 @@
         <button class="dropbtn" data-toggle="collapse" data-target="#AndrewCollapse" aria-controls="AndrewCollapse" aria-expanded="true">Andrew</button>
         <div class="dropdown-content collapse multi-collapse show" id="AndrewCollapse">
             <ul>                
-                <li><a href="#">one</a></li>
+                <li><a href="student/information">Student Information</a></li>
+                <li><a href="student/interests">Student Interests</a></li>
+                <li><a href="student/schools">Previous Schools</a></li>
+                <li><a href="student/abilities">Student Abilities</a></li>
+                <li><a href="student/household">Household Information</a></li>
+                <li><a href="student/siblings">Siblings</a></li>
+                <li><a href="student/parentQuestionair">Parent Questionair</a></li>
+                <li><a href="student/studentQuestionair">Student Questionar</a></li>
+                <li><a href="student/recommendation">Recommendation</a></li>
+                <li><a href="student/signature">Electronic Signature</a></li>
             </ul>
         </div>    
     </div>
