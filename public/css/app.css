@@ -171,7 +171,8 @@ form label, form input, form textarea{
 	}
 
 	form .subsection-header {
-		margin-top: 1.5rem;
+		margin-top: 1em;
+		margin-bottom: 1em;
 		width: 100%;
 		font-size: 18px;
 		font-weight: 600;
@@ -322,6 +323,19 @@ button {
 #student-application select{
 	margin-bottom: 0px;
 }
+	#student-application .checkbox-container{
+		display: inline;
+		width: 15px;
+		padding-top: 2px;
+	}
+
+	#student-application .checkbox-container input{
+		display: inline;
+		margin: 0px;
+		margin-left: 10px;
+		width: 14px;
+		margin-top: 2px;
+	}
 
 /* Classes */
 .apply .card-body {
@@ -343,6 +357,10 @@ button {
 .apply .card-body .title {
 	font-size: 18px;
 	font-weight: 600;
+}
+
+.checkbox-label{
+	display: inline;
 }
 
 .fancy-title{
