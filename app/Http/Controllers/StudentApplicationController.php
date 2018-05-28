@@ -14,57 +14,19 @@ class StudentApplicationController extends BaseController
       parent::__construct();
     }
 
-    /* Get Student Applications */
-
-    public function informationStudentApplication(Request $request)
+        public function newStudent(Request $request)
     {
-        // dd(session('applicant')['firstName']);
-        return view('partials.forms.applications.student.information');
-    }
+        $student = new Application;
+        $student->user_id = Auth::user()->id;
+        $student->first_name = $request['firstName'];
+        $student->last_name = $request['lastName'];
+        $student->year = $request['year'];
+        $student->grade = $request['grade'];
+        $student->save();
 
-    public function interestsStudentApplication()
-    {
-        return view('partials.forms.applications.student.interests');
-    }
+        $request->session()->put('applicant', ['id' => $student->id, 'firstName' => $student->first_name]);
 
-    public function schoolsStudentApplication()
-    {
-        return view('partials.forms.applications.student.schools');
-    }
-
-    public function abilitiesStudentApplication()
-    {
-        return view('partials.forms.applications.student.strengthsNeeds');
-    }
-
-    public function householdStudentApplication()
-    {
-        return view('partials.forms.applications.student.householdInfo');
-    }
-
-    public function siblingsStudentApplication()
-    {
-        return view('partials.forms.applications.student.siblings');
-    }
-
-    public function parentQuestionairStudentApplication()
-    {
-        return view('partials.forms.applications.student.parentQuestionair');
-    }
-
-    public function studentQuestionairStudentApplication()
-    {
-        return view('partials.forms.applications.student.studentQuestionair');
-    }
-
-    public function recommendationStudentApplication()
-    {
-        return view('partials.forms.applications.student.recommendation');
-    }
-
-    public function signatureStudentApplication()
-    {
-        return view('partials.forms.applications.student.electronicSignature');
+        return redirect()->route('information.student.application');
     }
 
 }
