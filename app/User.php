@@ -36,4 +36,9 @@ class User extends Authenticatable
     {
         return $this->hasMany('App\RequestPermissions');
     }
+
+    public function applications()
+    {
+        return $this->hasMany('App\Student\Application');
+    }
 }

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Permissions;
 use App\RequestPermissions;
+use App\Student\Application;
 
 class PostController extends BaseController
 {
@@ -16,7 +17,7 @@ class PostController extends BaseController
     
     public function apply(Request $request)
     {
-    	
+    	$user = Auth::user();
 
         $permissionRequest = new RequestPermissions;
         $permissionRequest->user_id = Auth::user()->id;
@@ -25,4 +26,6 @@ class PostController extends BaseController
 
     	return redirect()->route('application-'.$request['Position']);
     }
+
+
 }

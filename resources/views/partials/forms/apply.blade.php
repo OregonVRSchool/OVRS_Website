@@ -37,7 +37,7 @@
 									</button>
 								</div>
 								<div class="col-md-4">
-									<button type="submit" name="Position" value="student">
+									<button type="submit" name="Position" value="student" formaction="{{ route('student-apply') }}">
 										<div class="title">
 											Student
 										</div>
