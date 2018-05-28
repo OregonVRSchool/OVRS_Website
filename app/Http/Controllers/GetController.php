@@ -27,7 +27,9 @@ class GetController extends BaseController
 
     public function applications()
     {
-        return view('layouts.applicationsStatus');
+        $applications = Auth::user()->applications;
+        
+        return view('layouts.applicationsStatus')->with('applications', $applications);
     }
 
     public function category($category, $page)

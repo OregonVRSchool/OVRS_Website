@@ -18,14 +18,16 @@
 		    					<th>Application Status</th>
 		    					<th>Admission Progress</th>
 		    				</tr>
-		    				<tr>
-		    					<td>test Student</td>
-		    					<td>This year</td>
-		    					<td>10</td>
-		    					<td>Open <a href="#">(edit)</a></td>
-		    					<td>not submitted</td>
-		    					<td><a href="#">delete</a></td>
-		    				</tr>
+		    				@foreach($applications as $application)
+			    				<tr>
+			    					<td>{{ $application->first_name }} {{ $application->last_name }}</td>
+			    					<td>{{ $application->year }}</td>
+			    					<td>{{ $application->grade }}</td>
+			    					<td>{{ $application->status }} <a href="#">(edit)</a></td>
+			    					<td>{{ $application->progress }}</td>
+			    					<td><a href="#">delete</a></td>
+			    				</tr>
+		    				@endforeach
 		    			</table>
 		    		</div>
 		    	</div>
