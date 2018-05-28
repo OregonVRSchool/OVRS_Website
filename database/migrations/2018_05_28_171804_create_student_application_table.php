@@ -17,8 +17,8 @@ class CreateStudentApplicationTable extends Migration
             $table->increments('id');
             $table->timestamps();
             $table->integer('user_id');
-            $table->string('student_first_name', 50);
-            $table->string('student_last_name', 50);
+            $table->string('first_name', 50);
+            $table->string('last_name', 50);
             $table->integer('year');
             $table->integer('grade');
             $table->string('status')->default('Open');

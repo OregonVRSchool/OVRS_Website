@@ -36,10 +36,8 @@ id="new-student"
 @endsection
 
 @section('buttonRow')
-	<div id="submit-buttons" class="row">
-		<div class="col-md-6">
-			<button name="save">Save</button>
-		</div>
+	<div id="submit-buttons" class="row justify-content-md-center">
+
 		<div class="col-md-6">
 			<button name="next">Save and Continue</button>
 		</div>

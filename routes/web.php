@@ -18,7 +18,7 @@ Route::get('/', 'GetController@index')->name('home');
 Route::get('/apply', 'GetController@apply')->name('apply');
 Route::post('/apply', 'PostController@apply');
 
-Route::post('/apply/student', 'StudentApplication@apply')->name('student-apply');
+Route::post('/apply/student', 'StudentApplicationController@apply')->name('student-apply');
 
 Route::get('/{category}/{page}', 'GetController@category')->name('category');
 
@@ -27,7 +27,7 @@ Route::get('/home', 'HomeController@index');
 
 Route::get('/applications', 'GetController@applications')->name('applications');
 Route::get('/applications/new/student', 'GetController@newStudent')->name('application-student');
-
+Route::post('/applications/new/student', 'StudentApplicationController@newStudent');
 Route::get('/applications/student/information', 'GetController@informationStudentApplication')->name('information.student.application');
 Route::get('/applications/student/interests', 'GetController@interestsStudentApplication')->name('interests.student.application');
 Route::get('/applications/student/schools', 'GetController@schoolsStudentApplication')->name('schools.student.application');
