@@ -8,6 +8,10 @@ id="new-student"
 	New Student
 @endsection
 
+@section('quicknav-extension')
+
+@overwrite
+
 @section('form-content')
 	<div class="row">
 		<div class="col-md-6"> 

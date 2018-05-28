@@ -24,4 +24,9 @@ class Application extends Model
     {
     	return $this->belongsTo('App\User');
     }
+
+    public function new()
+    {
+        return $this->hasOne('App\Student\NewStudent');
+    }
 }

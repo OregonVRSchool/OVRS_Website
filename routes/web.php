@@ -17,6 +17,7 @@ Route::get('/', 'GetController@index')->name('home');
 
 Route::get('/apply', 'GetController@apply')->name('apply');
 Route::post('/apply', 'PostController@apply');
+
 Route::post('/apply/student', 'StudentApplication@apply')->name('student-apply');
 
 Route::get('/{category}/{page}', 'GetController@category')->name('category');

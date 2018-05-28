@@ -17,7 +17,6 @@ class PostController extends BaseController
     
     public function apply(Request $request)
     {
-    	$user = Auth::user();
 
         $permissionRequest = new RequestPermissions;
         $permissionRequest->user_id = Auth::user()->id;
