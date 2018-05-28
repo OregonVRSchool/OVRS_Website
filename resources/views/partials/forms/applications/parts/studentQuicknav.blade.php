@@ -1,6 +1,6 @@
 <div class="dropdown">        
-    <button class="dropbtn" data-toggle="collapse" data-target="#AndrewCollapse" aria-controls="AndrewCollapse" aria-expanded="true">Andrew</button>
-    <div class="dropdown-content collapse multi-collapse show" id="AndrewCollapse">
+    <button class="dropbtn" data-toggle="collapse" data-target="#{{ session('applicant')['firstName'] }}Collapse" aria-controls="{{ session('applicant')['firstName'] }}Collapse" aria-expanded="true">{{ session('applicant')['firstName'] }}</button>
+    <div class="dropdown-content collapse multi-collapse show" id="{{ session('applicant')['firstName'] }}Collapse">
         <ul>                
             <li><a href="{{ route('information.student.application') }}">Student Information</a></li>
             <li><a href="{{ route('interests.student.application') }}">Student Interests</a></li>

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use View;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Student\Application;
@@ -13,19 +14,57 @@ class StudentApplicationController extends BaseController
       parent::__construct();
     }
 
-    public function newStudent(Request $request)
+    /* Get Student Applications */
+
+    public function informationStudentApplication(Request $request)
     {
-        $student = new Application;
-        $student->user_id = Auth::user()->id;
-        $student->first_name = $request['firstName'];
-        $student->last_name = $request['lastName'];
-        $student->year = $request['year'];
-        $student->grade = $request['grade'];
-        $student->save();
+        // dd(session('applicant')['firstName']);
+        return view('partials.forms.applications.student.information');
+    }
 
-        $request->session()->flash('application', ['id' => $student->id, 'firstName' => $student->first_name]);
+    public function interestsStudentApplication()
+    {
+        return view('partials.forms.applications.student.interests');
+    }
 
-        return redirect()->route('information.student.application');
+    public function schoolsStudentApplication()
+    {
+        return view('partials.forms.applications.student.schools');
+    }
+
+    public function abilitiesStudentApplication()
+    {
+        return view('partials.forms.applications.student.strengthsNeeds');
+    }
+
+    public function householdStudentApplication()
+    {
+        return view('partials.forms.applications.student.householdInfo');
+    }
+
+    public function siblingsStudentApplication()
+    {
+        return view('partials.forms.applications.student.siblings');
+    }
+
+    public function parentQuestionairStudentApplication()
+    {
+        return view('partials.forms.applications.student.parentQuestionair');
+    }
+
+    public function studentQuestionairStudentApplication()
+    {
+        return view('partials.forms.applications.student.studentQuestionair');
+    }
+
+    public function recommendationStudentApplication()
+    {
+        return view('partials.forms.applications.student.recommendation');
+    }
+
+    public function signatureStudentApplication()
+    {
+        return view('partials.forms.applications.student.electronicSignature');
     }
 
 }
