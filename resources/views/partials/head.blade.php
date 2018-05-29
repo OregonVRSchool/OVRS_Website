@@ -9,6 +9,7 @@
       gtag('js', new Date());
 
       gtag('config', 'UA-119977018-1');
+      gtag('config', 'UA-119977018-2');
     </script>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
