@@ -23,9 +23,9 @@
 			    					<td>{{ $application->first_name }} {{ $application->last_name }}</td>
 			    					<td>{{ $application->year }}</td>
 			    					<td>{{ $application->grade }}</td>
-			    					<td>{{ $application->status }} <a href="#">(edit)</a></td>
+			    					<td>{{ $application->status }} <a href="{{ route('edit-student',  ['id' => $application->id ]) }}">(edit)</a></td>
 			    					<td>{{ $application->progress }}</td>
-			    					<td><a href="#">delete</a></td>
+			    					<td><a href="{{ route('delete-student', ['id' => $application->id ]) }}">delete</a></td>
 			    				</tr>
 		    				@endforeach
 		    			</table>

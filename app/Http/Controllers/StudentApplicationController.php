@@ -14,7 +14,7 @@ class StudentApplicationController extends BaseController
       parent::__construct();
     }
 
-        public function newStudent(Request $request)
+    public function newStudent(Request $request)
     {
         $student = new Application;
         $student->user_id = Auth::user()->id;
@@ -27,6 +27,21 @@ class StudentApplicationController extends BaseController
         $request->session()->put('applicant', ['id' => $student->id, 'firstName' => $student->first_name]);
 
         return redirect()->route('information.student.application');
+    }
+
+    public function editStudent($id)
+    {
+        $application = Auth::user()->applications->find($id);
+
+        return redirect()->route('application-student', ['application' => $application]);
+    }
+
+    public function deleteStudent($id)
+    {
+        $application = Auth::user()->applications->find(intval($id));
+        $application->delete();
+
+        return redirect()->route('applications');
     }
 
 }
