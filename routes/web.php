@@ -28,6 +28,7 @@ Route::get('/home', 'HomeController@index');
 Route::get('/applications', 'GetController@applications')->name('applications');
 Route::get('/applications/new/student', 'GetController@newStudent')->name('application-student');
 Route::get('/applications/edit/student/{id}', 'StudentApplicationController@editStudent')->name('edit-student');
+Route::post('/applications/edit/student/{id}', 'StudentApplicationController@updateStudent');
 Route::get('/applications/delete/student/{id}', 'StudentApplicationController@deleteStudent')->name('delete-student');
 Route::post('/applications/new/student', 'StudentApplicationController@newStudent');
 Route::get('/applications/student/information', 'GetController@informationStudentApplication')->name('information.student.application');

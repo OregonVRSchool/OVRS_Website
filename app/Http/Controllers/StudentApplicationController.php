@@ -29,13 +29,27 @@ class StudentApplicationController extends BaseController
         return redirect()->route('information.student.application');
     }
 
-    public function editStudent($id)
+    public function editStudent(Request $request, $id)
     {
         $application = Auth::user()->applications->find($id);
 
         $request->session()->put('applicant', ['id' => $application->id, 'firstName' => $application->first_name]);
 
-        return redirect()->route('application-student', ['application' => $application]);
+        return view('partials.forms.applications.student.new', ['application' => $application]);
+    }
+
+    public function updateStudent(Request $request, $id)
+    {
+        $application = Auth::user()->applications->find($id);
+        $application->first_name = $request['firstName'];
+        $application->last_name = $request['lastName'];
+        $application->year = $request['year'];
+        $application->grade = $request['grade'];
+        $application->save();
+
+        $request->session()->put('applicant', ['id' => $application->id, 'firstName' => $application->first_name]);
+
+        return view('partials.forms.applications.student.information', ['application' => $application]);
     }
 
     public function deleteStudent($id)

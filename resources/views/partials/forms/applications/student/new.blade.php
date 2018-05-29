@@ -13,26 +13,49 @@ id="new-student"
 @overwrite
 
 @section('form-content')
-	<div class="row">
-		<div class="col-md-6"> 
-			{!! Form::label('firstName', 'First Name') !!}
-			{!! Form::text ('firstName') !!}
+	@if(isset($application))
+		<div class="row">
+			<div class="col-md-6"> 
+				{!! Form::label('firstName', 'First Name') !!}
+				{!! Form::text ('firstName', $application->first_name) !!}
+			</div>
+			<div class="col-md-6 dropdown-section">
+				{!! Form::label('year', 'Applying for year:') !!}
+				{!! Form::select ('year', ['2020' => '2020', '2021' => '2021'], $application->year) !!}				
+			</div>
 		</div>
-		<div class="col-md-6 dropdown-section">
-			{!! Form::label('year', 'Applying for year:') !!}
-			{!! Form::select ('year', ['2020' => '2020', '2021' => '2021']) !!}				
+		<div class="row ">
+			<div class="col-md-6"> 
+				{!! Form::label('lastName', 'Last Name') !!}
+				{!! Form::text ('lastName', $application->last_name) !!}
+			</div>
+			<div class="col-md-6 dropdown-section"> 
+				{!! Form::label('grade', 'Applying for grade') !!}
+				{!! Form::select ('grade', ['9' => '9', '10' => '10', '11' => '11', '12' => '12'], $application->grade) !!}
+			</div>
 		</div>
-	</div>
-	<div class="row ">
-		<div class="col-md-6"> 
-			{!! Form::label('lastName', 'Last Name') !!}
-			{!! Form::text ('lastName') !!}
+	@else
+		<div class="row">
+			<div class="col-md-6"> 
+				{!! Form::label('firstName', 'First Name') !!}
+				{!! Form::text ('firstName') !!}
+			</div>
+			<div class="col-md-6 dropdown-section">
+				{!! Form::label('year', 'Applying for year:') !!}
+				{!! Form::select ('year', ['2020' => '2020', '2021' => '2021']) !!}				
+			</div>
 		</div>
-		<div class="col-md-6 dropdown-section"> 
-			{!! Form::label('grade', 'Applying for grade') !!}
-			{!! Form::select ('grade', ['9' => '9', '10' => '10', '11' => '11', '12' => '12']) !!}
+		<div class="row ">
+			<div class="col-md-6"> 
+				{!! Form::label('lastName', 'Last Name') !!}
+				{!! Form::text ('lastName') !!}
+			</div>
+			<div class="col-md-6 dropdown-section"> 
+				{!! Form::label('grade', 'Applying for grade') !!}
+				{!! Form::select ('grade', ['9' => '9', '10' => '10', '11' => '11', '12' => '12']) !!}
+			</div>
 		</div>
-	</div>
+	@endif
 @endsection
 
 @section('buttonRow')
