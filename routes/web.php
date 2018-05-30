@@ -15,8 +15,7 @@ Route::get('/test', 'GetController@test');
 
 Route::get('/', 'GetController@index')->name('home');
 
-Route::get('/apply', 'GetController@apply')->name('apply');
-Route::post('/apply', 'PostController@apply');
+
 
 Route::post('/apply/student', 'StudentApplicationController@apply')->name('student-apply');
 
@@ -25,22 +24,45 @@ Route::get('/{category}/{page}', 'GetController@category')->name('category');
 
 Route::get('/home', 'HomeController@index');
 
+Route::get('/apply', 'GetController@apply')->name('apply');
+Route::post('/apply', 'PostController@apply');
+
 Route::get('/applications', 'GetController@applications')->name('applications');
-Route::get('/applications/new/student', 'GetController@newStudent')->name('application-student');
-Route::get('/applications/edit/student/{id}', 'StudentApplicationController@editStudent')->name('edit-student');
-Route::post('/applications/edit/student/{id}', 'StudentApplicationController@updateStudent');
+
+Route::get('/applications/new/student/', 'StudentApplicationController@newStudent')
+	->name('student.application');
+Route::get('/applications/new/student/{id}', 'StudentApplicationController@editStudent')
+	->name('new.student.application');
+Route::post('/applications/new/student/{id}', 'StudentApplicationController@updateStudent');
+
 Route::get('/applications/delete/student/{id}', 'StudentApplicationController@deleteStudent')->name('delete-student');
-Route::post('/applications/new/student', 'StudentApplicationController@newStudent');
-Route::get('/applications/student/information', 'GetController@informationStudentApplication')->name('information.student.application');
-Route::get('/applications/student/interests', 'GetController@interestsStudentApplication')->name('interests.student.application');
-Route::get('/applications/student/schools', 'GetController@schoolsStudentApplication')->name('schools.student.application');
-Route::get('/applications/student/abilities', 'GetController@abilitiesStudentApplication')->name('abilities.student.application');
-Route::get('/applications/student/household', 'GetController@householdStudentApplication')->name('household.student.application');
-Route::get('/applications/student/siblings', 'GetController@siblingsStudentApplication')->name('siblings.student.application');
-Route::get('/applications/student/parentQuestionair', 'GetController@parentQuestionairStudentApplication')->name('parentQuestionair.student.application');
-Route::get('/applications/student/studentQuestionair', 'GetController@studentQuestionairStudentApplication')->name('studentQuestionair.student.application');
-Route::get('/applications/student/recommendation', 'GetController@recommendationStudentApplication')->name('recommendation.student.application');
-Route::get('/applications/student/signature', 'GetController@signatureStudentApplication')->name('signature.student.application');
+
+Route::get('/applications/student/information/{id}', 'GetController@informationStudentApplication')
+	->name('information.student.application');
+Route::post('/applications/student/information/{id}', 'StudentApplicationController@updateInformation');
+
+Route::get('/applications/student/interests/{id}', 'GetController@interestsStudentApplication')
+	->name('interests.student.application');
+Route::get('/applications/student/schools', 'GetController@schoolsStudentApplication')
+	->name('schools.student.application');
+Route::get('/applications/student/abilities', 'GetController@abilitiesStudentApplication')
+	->name('abilities.student.application');
+Route::get('/applications/student/household', 'GetController@householdStudentApplication')
+	->name('household.student.application');
+Route::get('/applications/student/siblings', 'GetController@siblingsStudentApplication')
+	->name('siblings.student.application');
+Route::get('/applications/student/parentQuestionair', 'GetController@parentQuestionairStudentApplication')
+	->name('parentQuestionair.student.application');
+Route::get('/applications/student/studentQuestionair', 'GetController@studentQuestionairStudentApplication')
+	->name('studentQuestionair.student.application');
+Route::get('/applications/student/recommendation', 'GetController@recommendationStudentApplication')
+	->name('recommendation.student.application');
+Route::get('/applications/student/signature', 'GetController@signatureStudentApplication')
+	->name('signature.student.application');
+
+
+
+
 
 Auth::routes();
 

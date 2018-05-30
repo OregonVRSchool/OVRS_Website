@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateStudentApplicationTable extends Migration
+class CreateStudentTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,16 +13,14 @@ class CreateStudentApplicationTable extends Migration
      */
     public function up()
     {
-        Schema::create('student_application', function (Blueprint $table) {
+        Schema::create('student', function (Blueprint $table) {
             $table->increments('id');
             $table->timestamps();
-            $table->integer('user_id');
+            $table->integer('applications_id');
             $table->string('first_name', 50);
             $table->string('last_name', 50);
             $table->integer('year');
             $table->integer('grade');
-            $table->string('status')->default('Open');
-            $table->string('progress')->default('Awaiting Submission');
         });
     }
 
@@ -33,6 +31,6 @@ class CreateStudentApplicationTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('student_application');
+        Schema::dropIfExists('student');
     }
 }

@@ -4,14 +4,14 @@ namespace App\Student;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Application extends Model
+class Student extends Model
 {
     /**
      * The table associated with the model.
      *
      * @var string
      */
-    protected $table = 'applications';
+    protected $table = 'student';
 
     /**
      * The attributes that aren't mass assignable.
@@ -20,13 +20,8 @@ class Application extends Model
      */
     protected $guarded = ['id', 'created_at', 'updated_at'];
 
-    public function user()
+    public function application()
     {
-    	return $this->belongsTo('App\User');
-    }
-
-    public function student()
-    {
-        return $this->hasOne('App\Student\Student', 'applications_id', 'id');
+    	return $this->belongsTo('App\Student\Application');
     }
 }
