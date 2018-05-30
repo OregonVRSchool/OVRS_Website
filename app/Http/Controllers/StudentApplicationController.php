@@ -61,6 +61,11 @@ class StudentApplicationController extends BaseController
         return redirect()->route($request['submit'], ['id' => $id]);
     }
 
+    public function updateInterests(Request $request, $id)
+    {
+        return redirect()->route($request['submit'], ['id' => $id]);
+    }
+
     public function deleteStudent($id)
     {
         $application = Auth::user()->applications->find(intval($id));

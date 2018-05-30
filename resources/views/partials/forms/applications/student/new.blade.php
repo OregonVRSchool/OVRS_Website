@@ -17,21 +17,21 @@ id="new-student"
 		<div class="row">
 			<div class="col-md-6"> 
 				{!! Form::label('firstName', 'First Name') !!}
-				{!! Form::text ('firstName', $application->first_name) !!}
+				{!! Form::text ('firstName', $application->student->first_name) !!}
 			</div>
 			<div class="col-md-6 dropdown-section">
 				{!! Form::label('year', 'Applying for year:') !!}
-				{!! Form::select ('year', ['2020' => '2020', '2021' => '2021'], $application->year) !!}				
+				{!! Form::select ('year', ['2020' => '2020', '2021' => '2021'], $application->student->year) !!}				
 			</div>
 		</div>
 		<div class="row ">
 			<div class="col-md-6"> 
 				{!! Form::label('lastName', 'Last Name') !!}
-				{!! Form::text ('lastName', $application->last_name) !!}
+				{!! Form::text ('lastName', $application->student->last_name) !!}
 			</div>
 			<div class="col-md-6 dropdown-section"> 
 				{!! Form::label('grade', 'Applying for grade') !!}
-				{!! Form::select ('grade', ['9' => '9', '10' => '10', '11' => '11', '12' => '12'], $application->grade) !!}
+				{!! Form::select ('grade', ['9' => '9', '10' => '10', '11' => '11', '12' => '12'], $application->student->grade) !!}
 			</div>
 		</div>
 	@else
