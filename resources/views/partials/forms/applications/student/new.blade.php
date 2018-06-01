@@ -62,7 +62,7 @@ id="new-student"
 	<div id="submit-buttons" class="row justify-content-md-center">
 
 		<div class="col-md-6">
-			<button name="next">Save and Continue</button>
+			<button name="submit" value="{{ $buttons['next'] }}">Save and Continue</button>
 		</div>
 	</div>
 @overwrite

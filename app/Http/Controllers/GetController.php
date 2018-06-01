@@ -39,10 +39,7 @@ class GetController extends BaseController
         return view('layouts/page', ['page' => $page]);
     }
 
-    public function newStudent()
-    {
-        return view('partials.forms.applications.student.new');
-    }
+  
 
     public function role($role)
     {
@@ -51,55 +48,114 @@ class GetController extends BaseController
 
     /* Get Student Applications */
 
-    public function informationStudentApplication(Request $request)
+    public function informationStudentApplication(Request $request, $id)
     {
+        $buttons = [
+            'back' => 'new.student.application',
+            'save' => 'information.student.application',
+            'next' => 'interests.student.application',        
+        ];
         
-        return view('partials.forms.applications.student.information');
+        return view('partials.forms.applications.student.information', ['buttons' => $buttons]);
     }
 
     public function interestsStudentApplication()
     {
-        return view('partials.forms.applications.student.interests');
+        $buttons = [
+            'back' => 'information.student.application',
+            'save' => 'interests.student.application',
+            'next' => 'schools.student.application',        
+        ];
+
+        return view('partials.forms.applications.student.interests', ['buttons' => $buttons]);
     }
 
     public function schoolsStudentApplication()
     {
-        return view('partials.forms.applications.student.schools');
+        $buttons = [
+            'back' => 'interests.student.application',
+            'save' => 'schools.student.application',
+            'next' => 'abilities.student.application',        
+        ];
+
+        return view('partials.forms.applications.student.schools', ['buttons' => $buttons]);
     }
 
     public function abilitiesStudentApplication()
     {
-        return view('partials.forms.applications.student.strengthsNeeds');
+        $buttons = [
+            'back' => 'schools.student.application',
+            'save' => 'abilities.student.application',
+            'next' => 'household.student.application',        
+        ];
+
+        return view('partials.forms.applications.student.strengthsNeeds', ['buttons' => $buttons]);
     }
 
     public function householdStudentApplication()
     {
-        return view('partials.forms.applications.student.householdInfo');
+        $buttons = [
+            'back' => 'abilities.student.application',
+            'save' => 'household.student.application',
+            'next' => 'siblings.student.application',       
+        ];
+
+        return view('partials.forms.applications.student.householdInfo', ['buttons' => $buttons]);
     }
 
     public function siblingsStudentApplication()
     {
-        return view('partials.forms.applications.student.siblings');
+        $buttons = [
+            'back' => 'household.student.application',
+            'save' => 'siblings.student.application',
+            'next' => 'parentQuestionair.student.application',        
+        ];
+
+        return view('partials.forms.applications.student.siblings', ['buttons' => $buttons]);
     }
 
     public function parentQuestionairStudentApplication()
     {
-        return view('partials.forms.applications.student.parentQuestionair');
+        $buttons = [
+            'back' => 'siblings.student.application',
+            'save' => 'parentQuestionair.student.application',
+            'next' => 'studentQuestionair.student.application',        
+        ];
+
+        return view('partials.forms.applications.student.parentQuestionair', ['buttons' => $buttons]);
     }
 
     public function studentQuestionairStudentApplication()
     {
-        return view('partials.forms.applications.student.studentQuestionair');
+        $buttons = [
+            'back' => 'parentQuestionair.student.application',
+            'save' => 'studentQuestionair.student.application',
+            'next' => 'recommendation.student.application',        
+        ];
+
+        return view('partials.forms.applications.student.studentQuestionair', ['buttons' => $buttons]);
     }
 
     public function recommendationStudentApplication()
     {
-        return view('partials.forms.applications.student.recommendation');
+        $buttons = [
+            'back' => 'studentQuestionair.student.application',
+            'save' => 'recommendation.student.application',
+            'next' => 'signature.student.application',        
+        ];
+
+        return view('partials.forms.applications.student.recommendation', ['buttons' => $buttons]);
     }
 
     public function signatureStudentApplication()
     {
-        return view('partials.forms.applications.student.electronicSignature');
+        $buttons = [
+            'back' => 'recommendation.student.application',
+            'save' => 'signature.student.application',
+            'next' => 'submit.student.application',        
+        ];
+
+        return view('partials.forms.applications.student.electronicSignature', ['buttons' => $buttons]);
     }
 
     public function test()

@@ -47,21 +47,35 @@ Route::post('/applications/student/interests/{id}', 'StudentApplicationControlle
 
 Route::get('/applications/student/schools/{id}', 'GetController@schoolsStudentApplication')
 	->name('schools.student.application');
+Route::post('/applications/student/schools/{id}', 'StudentApplicationController@updateSchools');
+
 Route::get('/applications/student/abilities/{id}', 'GetController@abilitiesStudentApplication')
 	->name('abilities.student.application');
+Route::post('/applications/student/abilities/{id}', 'StudentApplicationController@updateAbilities');
+
 Route::get('/applications/student/household/{id}', 'GetController@householdStudentApplication')
 	->name('household.student.application');
+Route::post('/applications/student/household/{id}', 'StudentApplicationController@updateHousehold');
+
 Route::get('/applications/student/siblings/{id}', 'GetController@siblingsStudentApplication')
 	->name('siblings.student.application');
+Route::post('/applications/student/siblings/{id}', 'StudentApplicationController@updateSiblings');
+
 Route::get('/applications/student/parentQuestionair/{id}', 'GetController@parentQuestionairStudentApplication')
 	->name('parentQuestionair.student.application');
+Route::post('/applications/student/parentQuestionair/{id}', 'StudentApplicationController@updateParentQuestionair');
+
 Route::get('/applications/student/studentQuestionair/{id}', 'GetController@studentQuestionairStudentApplication')
 	->name('studentQuestionair.student.application');
+Route::post('/applications/student/studentQuestionair/{id}', 'StudentApplicationController@updateStudentQuestionair');
+
 Route::get('/applications/student/recommendation/{id}', 'GetController@recommendationStudentApplication')
 	->name('recommendation.student.application');
+Route::post('/applications/student/recommendation/{id}', 'StudentApplicationController@updateRecommendation');
+
 Route::get('/applications/student/signature/{id}', 'GetController@signatureStudentApplication')
 	->name('signature.student.application');
-
+Route::post('/applications/student/signature/{id}', 'StudentApplicationController@updateSignature');
 
 
 

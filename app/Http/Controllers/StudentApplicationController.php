@@ -37,7 +37,13 @@ class StudentApplicationController extends BaseController
 
         $request->session()->put('applicant', ['id' => $application->id, 'firstName' => $application->first_name]);
 
-        return view('partials.forms.applications.student.new', ['application' => $application]);
+        $buttons = [
+            'back' => 'new.student.application',
+            'save' => 'new.student.application',
+            'next' => 'information.student.application',        
+        ];
+
+        return view('partials.forms.applications.student.new', ['application' => $application, 'buttons' => $buttons]);
     }
 
     public function updateStudent(Request $request, $id)
@@ -62,6 +68,46 @@ class StudentApplicationController extends BaseController
     }
 
     public function updateInterests(Request $request, $id)
+    {
+        return redirect()->route($request['submit'], ['id' => $id]);
+    }
+
+    public function updateSchools(Request $request, $id)
+    {
+        return redirect()->route($request['submit'], ['id' => $id]);
+    }
+
+    public function updateAbilities(Request $request, $id)
+    {
+        return redirect()->route($request['submit'], ['id' => $id]);
+    }
+
+    public function updateHousehold(Request $request, $id)
+    {
+        return redirect()->route($request['submit'], ['id' => $id]);
+    }
+
+    public function updateSiblings(Request $request, $id)
+    {
+        return redirect()->route($request['submit'], ['id' => $id]);
+    }
+
+    public function updateParentQuestionair(Request $request, $id)
+    {
+        return redirect()->route($request['submit'], ['id' => $id]);
+    }
+
+    public function updateStudentQuestionair(Request $request, $id)
+    {
+        return redirect()->route($request['submit'], ['id' => $id]);
+    }
+
+    public function updateRecommendation(Request $request, $id)
+    {
+        return redirect()->route($request['submit'], ['id' => $id]);
+    }
+
+    public function updateSignature(Request $request, $id)
     {
         return redirect()->route($request['submit'], ['id' => $id]);
     }
