@@ -29,4 +29,9 @@ class Application extends Model
     {
         return $this->hasOne('App\Student\Student', 'applications_id', 'id');
     }
+
+    public function informationPage()
+    {
+        return $this->hasOne('App\Student\InformationPage')
+    }
 }

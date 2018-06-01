@@ -17,7 +17,7 @@
 			{!! Form::label('preferredName', 'Preferred Name') !!}
 			{!! Form::text ('preferredName') !!}
 			{!! Form::label('steamUsername', 'Steam Username') !!}
-			{!! Form::text ('studentUsername') !!}
+			{!! Form::text ('steamUsername') !!}
 
 		</div>
 		<div class="col-md-6">
