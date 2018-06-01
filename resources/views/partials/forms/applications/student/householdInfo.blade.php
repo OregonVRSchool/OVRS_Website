@@ -59,13 +59,13 @@
 		{!! Form::label('emailAddress', 'Email Address') !!}
 		{!! Form::email ('emailAddress') !!}
 		{!! Form::label('workPhone', 'Work Phone') !!}
-		{!! Form::text ('workPhone') !!}
+		{!! Form::tel ('workPhone') !!}
 	</div>
 	<div class="col-md-6">
 		{!! Form::label('homePhone', 'Home Phone') !!}
-		{!! Form::text ('homePhone') !!}
+		{!! Form::tel ('homePhone') !!}
 		{!! Form::label('cellPhone', 'Cell Phone') !!}
-		{!! Form::text ('cellPhone') !!}
+		{!! Form::tel ('cellPhone') !!}
 	</div>
 </div>
 

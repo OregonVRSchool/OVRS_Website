@@ -22,11 +22,11 @@
 		</div>
 		<div class="col-md-6">
 			{!! Form::label('studentEmailAddress','Students Email Address') !!}
-			{!! Form::text ('studentEmailAddress') !!}
+			{!! Form::email ('studentEmailAddress') !!}
 			{!! Form::label('studentHomePhone', 'Home Phone') !!}
-			{!! Form::text ('studentHomePhone') !!}
+			{!! Form::tel ('studentHomePhone') !!}
 			{!! Form::label('studentCellPhone', 'Cell Phone') !!}
-			{!! Form::text ('studentCellPhone') !!}
+			{!! Form::tel ('studentCellPhone') !!}
 			
 		</div>
 	</div>

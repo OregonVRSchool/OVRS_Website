@@ -20,7 +20,7 @@
 			{!! Form::label('address', 'Address') !!}
 			{!! Form::text ('address') !!}
 			{!! Form::label('phone', 'Phone Number') !!}
-			{!! Form::text ('phone') !!}
+			{!! Form::tel ('phone') !!}
 		</div>
 		<div class="col-md-6">
 			{!! Form::label('fromDate', 'From Date') !!}
