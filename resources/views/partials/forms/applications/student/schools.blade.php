@@ -24,9 +24,9 @@
 		</div>
 		<div class="col-md-6">
 			{!! Form::label('fromDate', 'From Date') !!}
-			{!! Form::text ('fromDate') !!}
+			{!! Form::date ('fromDate') !!}
 			{!! Form::label('toDate', 'To Date') !!}
-			{!! Form::text ('toDate') !!}
+			{!! Form::date ('toDate') !!}
 			{!! Form::label('gradeCompleted', 'Highest Grade Completed') !!}
 		{!! Form::text ('gradeCompleted') !!}
 		</div>
