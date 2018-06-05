@@ -13,7 +13,7 @@ id="new-student"
 @overwrite
 
 @section('form-content')
-	@if(isset($application))
+	@if(isset($application->student))
 		<div class="row">
 			<div class="col-md-6"> 
 				{!! Form::label('firstName', 'First Name') !!}

@@ -34,7 +34,6 @@ class StudentApplicationController extends BaseController
     public function editStudent(Request $request, $id)
     {
         $application = Auth::user()->applications->find($id);
-
         $request->session()->put('applicant', ['id' => $application->id, 'firstName' => $application->first_name]);
 
         $buttons = [
