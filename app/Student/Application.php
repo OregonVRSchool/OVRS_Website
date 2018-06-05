@@ -64,4 +64,9 @@ class Application extends Model
     {
         return $this->hasOne('App\Student\StudentQuestionairPage');
     }
+
+    public function recommendationPage()
+    {
+        return$this->hasOne('App\Student\RecommendationPage');
+    }
 }
