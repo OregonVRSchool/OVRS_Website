@@ -44,4 +44,9 @@ class Application extends Model
     {
         return $this->hasOne('App\Student\StrenthsNeedsPage');
     }
+
+    public function hoseholdInformationPages()
+    {
+        return $this->hasMany('App\Student\HouseholdInformationPage');
+    }
 }
