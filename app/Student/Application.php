@@ -39,4 +39,9 @@ class Application extends Model
     {
         return $this->hasOne('App\Student\SchoolsPage');
     }
+
+    public function strengthsNeedsPage()
+    {
+        return $this->hasOne('App\Student\StrenthsNeedsPage');
+    }
 }
