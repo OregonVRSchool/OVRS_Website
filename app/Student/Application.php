@@ -59,4 +59,9 @@ class Application extends Model
     {
         return $this->hasOne('App\Student\ParentQuestionairPage');
     }
+
+    public function studentQuestionairPage()
+    {
+        return $this->hasOne('App\Student\StudentQuestionairPage');
+    }
 }
