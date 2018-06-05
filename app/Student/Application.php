@@ -50,8 +50,13 @@ class Application extends Model
         return $this->hasMany('App\Student\HouseholdInformationPage');
     }
 
-    public function sublingsPages()
+    public function siblingsPages()
     {
         return $this->hasMany('App\Student\SiblingsPage');
+    }
+
+    public function parentQuestionairPage()
+    {
+        return $this->hasOne('App\Student\ParentQuestionairPage');
     }
 }
