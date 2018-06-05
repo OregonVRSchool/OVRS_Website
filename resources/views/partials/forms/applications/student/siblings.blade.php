@@ -22,8 +22,8 @@
 			{!! Form::text ('userName') !!}
 		</div>
 		<div class="col-md-6">
-			{!! Form::label('studnetID', 'StudnetID') !!}
-			{!! Form::text ('studnetID') !!}
+			{!! Form::label('studentID', 'Student ID') !!}
+			{!! Form::text ('studentID') !!}
 			{!! Form::label('relationship', 'Relationship to Applicant') !!}
 			{!! Form::text ('relationship') !!}
 			{!! Form::label('yearsAttended', 'Years Attended') !!}

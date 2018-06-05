@@ -49,4 +49,9 @@ class Application extends Model
     {
         return $this->hasMany('App\Student\HouseholdInformationPage');
     }
+
+    public function sublingsPages()
+    {
+        return $this->hasMany('App\Student\SiblingsPage');
+    }
 }
