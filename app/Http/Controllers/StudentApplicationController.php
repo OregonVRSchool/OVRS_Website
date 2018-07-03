@@ -6,6 +6,7 @@ use View;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\StudentInformation;
+use App\Http\Requests\StudentInterestsValidator;
 use App\Student\Application;
 use App\Student\Student;
 
@@ -67,7 +68,7 @@ class StudentApplicationController extends BaseController
         // return redirect()->route($request['submit'], ['id' => $id]);
     }
 
-    public function updateInterests(Request $request, $id)
+    public function updateInterests(StudentInterestsValidator $request, $id)
     {
         return redirect()->route($request['submit'], ['id' => $id]);
     }
