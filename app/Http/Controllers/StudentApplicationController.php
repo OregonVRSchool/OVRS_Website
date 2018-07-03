@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use View;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Requests\StudentInformation;
 use App\Student\Application;
 use App\Student\Student;
 
@@ -60,10 +61,10 @@ class StudentApplicationController extends BaseController
         return redirect()->route('information.student.application', ['id' => $application->id]);
     }
 
-    public function updateInformation(Request $request, $id)
+    public function updateInformation(StudentInformation $request, $id)
     {
-        
-        return redirect()->route($request['submit'], ['id' => $id]);
+        return $request->validated();
+        // return redirect()->route($request['submit'], ['id' => $id]);
     }
 
     public function updateInterests(Request $request, $id)
