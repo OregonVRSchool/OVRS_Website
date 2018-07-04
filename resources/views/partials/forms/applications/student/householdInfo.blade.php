@@ -42,11 +42,11 @@
 	</div>
 	<div class="col-md-6">
 		{!! Form::label('financialResponsibility', 'Financial Responsibility') !!}
-		{!! Form::select ('financialResponsibility', ["Y" => "Yes", "N" => "No"], "Y") !!}
+		{!! Form::select ('financialResponsibility', [true => "Yes", false => "No"], true) !!}
 		{!! Form::label('receiveCorrispondence', 'Receive Corrispondence') !!}
-		{!! Form::select ('receiveCorrispondence', ["Y" => "Yes", "N" => "No"], "Y") !!}
+		{!! Form::select ('receiveCorrispondence', [true => "Yes", false => "No"], true) !!}
 		{!! Form::label('custodialRights', 'Custodial Rights') !!}
-		{!! Form::select ('custodialRights', ["Y" => "Yes", "N" => "No"], "Y") !!}
+		{!! Form::select ('custodialRights', [true => "Yes", false => "No"], true) !!}
 	</div>
 </div>
 

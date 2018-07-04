@@ -9,6 +9,7 @@ use App\Http\Requests\StudentInformation;
 use App\Http\Requests\StudentInterestsValidator;
 use App\Http\Requests\StudentSchoolValidator;
 use App\Http\Requests\StudentAbilitiesValidator;
+use App\Http\Requests\StudentHouseholdValidator;
 use App\Student\Application;
 use App\Student\Student;
 
@@ -84,7 +85,7 @@ class StudentApplicationController extends BaseController
         return redirect()->route($request['submit'], ['id' => $id]);
     }
 
-    public function updateHousehold(Request $request, $id)
+    public function updateHousehold(StudentHouseholdValidator $request, $id)
     {
         return redirect()->route($request['submit'], ['id' => $id]);
     }
