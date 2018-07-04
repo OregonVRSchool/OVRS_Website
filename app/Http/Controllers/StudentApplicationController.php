@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\StudentInformation;
 use App\Http\Requests\StudentInterestsValidator;
 use App\Http\Requests\StudentSchoolValidator;
+use App\Http\Requests\StudentAbilitiesValidator;
 use App\Student\Application;
 use App\Student\Student;
 
@@ -78,7 +79,7 @@ class StudentApplicationController extends BaseController
         return redirect()->route($request['submit'], ['id' => $id]);
     }
 
-    public function updateAbilities(Request $request, $id)
+    public function updateAbilities(StudentAbilitiesValidator $request, $id)
     {
         return redirect()->route($request['submit'], ['id' => $id]);
     }
