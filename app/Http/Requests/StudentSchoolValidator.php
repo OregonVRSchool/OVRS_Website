@@ -36,7 +36,7 @@ class StudentSchoolValidator extends FormRequest
             'expelled' => 'required|max:250',
             'suspended' => 'required|max:250',
             'skippedGrade' => 'required|max:250',
-            'iep' => 'required',
+            'iep' => 'required|boolean',
         ];
     }
 }
