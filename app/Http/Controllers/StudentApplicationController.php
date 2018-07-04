@@ -12,6 +12,7 @@ use App\Http\Requests\StudentAbilitiesValidator;
 use App\Http\Requests\StudentHouseholdValidator;
 use App\Http\Requests\StudentSiblingsValidator;
 use App\Http\Requests\ParentQuestionairValidator;
+use App\Http\Requests\StudentQuestionairValidator;
 use App\Student\Application;
 use App\Student\Student;
 
@@ -102,7 +103,7 @@ class StudentApplicationController extends BaseController
         return redirect()->route($request['submit'], ['id' => $id]);
     }
 
-    public function updateStudentQuestionair(Request $request, $id)
+    public function updateStudentQuestionair(StudentQuestionairValidator $request, $id)
     {
         return redirect()->route($request['submit'], ['id' => $id]);
     }
