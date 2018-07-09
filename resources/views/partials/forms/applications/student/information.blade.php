@@ -89,8 +89,8 @@
 			{!! Form::file ('studentPicture', null) !!}
 		</div>
 		<div class="col-md-6">
-			{!! Form::label('whoReferedUs', 'How did you hear about us') !!}
-			{!! Form::text ('whoReferedUs') !!}
+			{!! Form::label('whoReferredUs', 'How did you hear about us') !!}
+			{!! Form::text ('whoReferredUs') !!}
 		</div>
 	</div>	
 

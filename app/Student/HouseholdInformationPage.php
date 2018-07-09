@@ -11,7 +11,7 @@ class HouseholdInformationPage extends Model
      *
      * @var string
      */
-    protected $table = 'hosehold_information';
+    protected $table = 'household_information';
 
     /**
      * The attributes that aren't mass assignable.

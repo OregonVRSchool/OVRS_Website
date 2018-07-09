@@ -41,7 +41,7 @@ class StudentInformation extends FormRequest
             'studentBirthCity' => 'required|max:50',
             'studentOtherLanguages' => 'required|max:50',
             'studentPicture' => 'nullable',
-            'whoRefferedUs' => 'nullable|max:50',
+            'whoReferredUs' => 'nullable|max:50',
         ];
     }
 }

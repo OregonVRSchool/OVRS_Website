@@ -11,7 +11,7 @@ class StrengthsNeedsPage extends Model
      *
      * @var string
      */
-    protected $table = 'strenths_needs';
+    protected $table = 'strengths_needs';
 
     /**
      * The attributes that aren't mass assignable.

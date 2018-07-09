@@ -20,8 +20,8 @@ class CreateInformationPageTable extends Migration
             $table->string('preferred_name', 50);
             $table->string('steam_username', 50);
             $table->string('email', 50);
-            $table->string('home_phone', 15);
-            $table->string('cell_phone', 15);
+            $table->string('home_phone', 50);
+            $table->string('cell_phone', 50);
             $table->string('address', 100);
             $table->string('city', 50);
             $table->string('state', 50);

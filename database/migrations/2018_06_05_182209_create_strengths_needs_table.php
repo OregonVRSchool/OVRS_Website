@@ -30,6 +30,6 @@ class CreateStrengthsNeedsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('strength_needs');
+        Schema::dropIfExists('strengths_needs');
     }
 }

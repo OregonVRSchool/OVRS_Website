@@ -28,7 +28,7 @@ class StudentSiblingsValidator extends FormRequest
             'firstName' => 'required|max:50',
             'lastName' => 'required|max:50',
             'userName' => 'required|max:50',
-            'studentID' => 'required|max:10',
+            'studentID' => 'required|numeric|max:10',
             'relationship' => 'required|max:50',
             'yearsAttended' => 'required|max:15',
         ];

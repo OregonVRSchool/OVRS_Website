@@ -59,5 +59,5 @@
 	</div>
 
 	{!! Form::label('iep', 'Does the student have an (IEP) or 504 plan') !!}
-	{!! Form::select ('iep', array('Y' => 'Yes', 'N' => 'No'), 'N') !!}
+	{!! Form::select ('iep', array(true => 'Yes', false => 'No'), false) !!}
 @endsection
