@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Auth;
 use App\User;
 use App\Category;
 use App\Page;
+use App\Student\InformationPage;
 
 class GetController extends BaseController
 {
@@ -50,13 +51,18 @@ class GetController extends BaseController
 
     public function informationStudentApplication(Request $request, $id)
     {
+        $page = Auth::user()->applications->where('id', $id)->first()->informationPage;
+        if (is_null($page)) {
+            $page = new InformationPage;
+        }
+        
         $buttons = [
             'back' => 'new.student.application',
             'save' => 'information.student.application',
             'next' => 'interests.student.application',        
         ];
         
-        return view('partials.forms.applications.student.information', ['buttons' => $buttons]);
+        return view('partials.forms.applications.student.information', ['buttons' => $buttons, 'page' => $page]);
     }
 
     public function interestsStudentApplication()

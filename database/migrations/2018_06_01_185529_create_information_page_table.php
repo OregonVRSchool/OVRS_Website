@@ -33,7 +33,7 @@ class CreateInformationPageTable extends Migration
             $table->string('language', 15);
             $table->string('other_languages', 50);
             $table->string('birth_city', 50);
-            $table->string('reffered_by', 50);
+            $table->string('referred_by', 50);
         });
     }
 
