@@ -11,6 +11,7 @@ use App\Student\InformationPage;
 use App\Student\InterestsPage;
 use App\Student\SchoolsPage;
 use App\Student\StrengthsNeedsPage;
+use App\Student\HouseholdInformationPage;
 
 class GetController extends BaseController
 {
@@ -117,15 +118,24 @@ class GetController extends BaseController
         return view('partials.forms.applications.student.strengthsNeeds', ['buttons' => $buttons, 'page' => $page]);
     }
 
-    public function householdStudentApplication()
+    public function householdStudentApplication($id)
     {
+        $page = Auth::user()->applications->where('id', $id)->first()->householdInformationPages->first();
+        
+        if (is_null($page)) {
+            $page = new HouseholdInformationPage;
+            $page->financial_responsibility = 'true';
+            $page->receive_corrispondence = 'true';
+            $page->custodial_rights = 'true';
+        }
+
         $buttons = [
             'back' => 'abilities.student.application',
             'save' => 'household.student.application',
             'next' => 'siblings.student.application',       
         ];
 
-        return view('partials.forms.applications.student.householdInfo', ['buttons' => $buttons]);
+        return view('partials.forms.applications.student.householdInfo', ['buttons' => $buttons,  'page' => $page]);
     }
 
     public function siblingsStudentApplication()

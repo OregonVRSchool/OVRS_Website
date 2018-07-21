@@ -50,7 +50,7 @@ class Application extends Model
         return $this->hasOne('App\Student\StrengthsNeedsPage');
     }
 
-    public function hoseholdInformationPages()
+    public function householdInformationPages()
     {
         return $this->hasMany('App\Student\HouseholdInformationPage');
     }
