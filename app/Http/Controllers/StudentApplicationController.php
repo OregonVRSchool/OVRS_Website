@@ -102,7 +102,7 @@ class StudentApplicationController extends BaseController
                 'language' => $inputs["studentLanguage"], 
                 'other_languages' => $inputs["studentOtherLanguages"], 
                 'birth_city' => $inputs["studentBirthCity"], 
-                'reffered_by' => $inputs["whoReferredUs"], 
+                'referred_by' => $inputs["whoReferredUs"], 
             ]
         );
         return redirect()->route($request['submit'], ['id' => $id]);
