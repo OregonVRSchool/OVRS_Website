@@ -139,7 +139,7 @@ class StudentApplicationController extends BaseController
                 'phone' => $inputs['phone'],
                 'from_date' => $inputs['fromDate'],
                 'to_date' => $inputs['toDate'],
-                'grade_compleated' => $inputs['gradeCompleted'],
+                'grade_completed' => $inputs['gradeCompleted'],
                 'math_teacher' => $inputs['mathTeacher'],
                 'english_teacher' => $inputs['englishTeacher'],
                 'computer_teacher' => $inputs['computerTeacher'],

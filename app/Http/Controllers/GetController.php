@@ -82,15 +82,21 @@ class GetController extends BaseController
         return view('partials.forms.applications.student.interests', ['buttons' => $buttons, 'page' => $page]);
     }
 
-    public function schoolsStudentApplication()
+    public function schoolsStudentApplication($id)
     {
+        $page = Auth::user()->applications->where('id', $id)->first()->schoolsPage;
+        if (is_null($page)) {
+            $page = new InterestsPage;
+            $page->iep = 'false';
+        }
+
         $buttons = [
             'back' => 'interests.student.application',
             'save' => 'schools.student.application',
             'next' => 'abilities.student.application',        
         ];
 
-        return view('partials.forms.applications.student.schools', ['buttons' => $buttons]);
+        return view('partials.forms.applications.student.schools', ['buttons' => $buttons, 'page' => $page]);
     }
 
     public function abilitiesStudentApplication()

@@ -22,7 +22,7 @@ class CreateSchoolsPageTable extends Migration
             $table->string('phone', 15);
             $table->date('from_date');
             $table->date('to_date');
-            $table->string('grade_compleated', 15);
+            $table->string('grade_completed', 15);
             $table->string('math_teacher', 50);
             $table->string('english_teacher', 50);
             $table->string('computer_teacher', 50);
