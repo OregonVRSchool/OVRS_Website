@@ -35,6 +35,11 @@ class Application extends Model
         return $this->hasOne('App\Student\InformationPage');
     }
 
+    public function interestsPage()
+    {
+        return $this->hasOne('App\Student\InterestsPage');
+    }
+
     public function schoolsPage()
     {
         return $this->hasOne('App\Student\SchoolsPage');
