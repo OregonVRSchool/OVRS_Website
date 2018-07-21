@@ -47,7 +47,7 @@ class Application extends Model
 
     public function strengthsNeedsPage()
     {
-        return $this->hasOne('App\Student\StrenthsNeedsPage');
+        return $this->hasOne('App\Student\StrengthsNeedsPage');
     }
 
     public function hoseholdInformationPages()

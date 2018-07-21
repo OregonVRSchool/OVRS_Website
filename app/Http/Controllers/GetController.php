@@ -9,6 +9,8 @@ use App\Category;
 use App\Page;
 use App\Student\InformationPage;
 use App\Student\InterestsPage;
+use App\Student\SchoolsPage;
+use App\Student\StrengthsNeedsPage;
 
 class GetController extends BaseController
 {
@@ -86,7 +88,7 @@ class GetController extends BaseController
     {
         $page = Auth::user()->applications->where('id', $id)->first()->schoolsPage;
         if (is_null($page)) {
-            $page = new InterestsPage;
+            $page = new SchoolsPage;
             $page->iep = 'false';
         }
 
@@ -99,15 +101,20 @@ class GetController extends BaseController
         return view('partials.forms.applications.student.schools', ['buttons' => $buttons, 'page' => $page]);
     }
 
-    public function abilitiesStudentApplication()
+    public function abilitiesStudentApplication($id)
     {
+        $page = Auth::user()->applications->where('id', $id)->first()->strengthsNeedsPage;
+        if (is_null($page)) {
+            $page = new StrengthsNeedsPage;
+        }
+
         $buttons = [
             'back' => 'schools.student.application',
             'save' => 'abilities.student.application',
             'next' => 'household.student.application',        
         ];
 
-        return view('partials.forms.applications.student.strengthsNeeds', ['buttons' => $buttons]);
+        return view('partials.forms.applications.student.strengthsNeeds', ['buttons' => $buttons, 'page' => $page]);
     }
 
     public function householdStudentApplication()
