@@ -257,6 +257,22 @@ button {
 
 
 /* ID's */
+#auth label {
+	margin-top: 0px;
+	margin-bottom: 0px;
+	text-align: center;
+}
+	
+	#auth a{
+		width: 100%;
+	}
+
+	#auth .checkbox input {
+		width: 30px;
+		display: inline;
+
+	}
+
 #main {
 	/*padding-top: 50px;*/
 	background-color: black;
