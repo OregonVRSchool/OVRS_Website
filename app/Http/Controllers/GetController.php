@@ -13,6 +13,8 @@ use App\Student\SchoolsPage;
 use App\Student\StrengthsNeedsPage;
 use App\Student\HouseholdInformationPage;
 use App\Student\SiblingsPage;
+use App\Student\ParentQuestionairPage;
+use App\Student\StudentQuestionairPage;
 
 class GetController extends BaseController
 {
@@ -155,26 +157,36 @@ class GetController extends BaseController
         return view('partials.forms.applications.student.siblings', ['buttons' => $buttons, 'page' => $page]);
     }
 
-    public function parentQuestionairStudentApplication()
+    public function parentQuestionairStudentApplication($id)
     {
+        $page = Auth::user()->applications->where('id', $id)->first()->parentQuestionairPage;
+        if (is_null($page)) {
+            $page = new ParentQuestionairPage;
+        }
+
         $buttons = [
             'back' => 'siblings.student.application',
             'save' => 'parentQuestionair.student.application',
             'next' => 'studentQuestionair.student.application',        
         ];
 
-        return view('partials.forms.applications.student.parentQuestionair', ['buttons' => $buttons]);
+        return view('partials.forms.applications.student.parentQuestionair', ['buttons' => $buttons, 'page' => $page]);
     }
 
-    public function studentQuestionairStudentApplication()
+    public function studentQuestionairStudentApplication($id)
     {
+        $page = Auth::user()->applications->where('id', $id)->first()->studentQuestionairPage;
+        if (is_null($page)) {
+            $page = new StudentQuestionairPage;
+        }
+
         $buttons = [
             'back' => 'parentQuestionair.student.application',
             'save' => 'studentQuestionair.student.application',
             'next' => 'recommendation.student.application',        
         ];
 
-        return view('partials.forms.applications.student.studentQuestionair', ['buttons' => $buttons]);
+        return view('partials.forms.applications.student.studentQuestionair', ['buttons' => $buttons, 'page' => $page]);
     }
 
     public function recommendationStudentApplication()
