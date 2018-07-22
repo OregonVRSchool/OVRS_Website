@@ -17,10 +17,10 @@ class CreateStudentTable extends Migration
             $table->increments('id');
             $table->timestamps();
             $table->integer('applications_id');
-            $table->string('first_name', 50);
-            $table->string('last_name', 50);
-            $table->integer('year');
-            $table->integer('grade');
+            $table->string('first_name', 50)->nullable();
+            $table->string('last_name', 50)->nullable();
+            $table->integer('year')->nullable();
+            $table->integer('grade')->nullable();
         });
     }
 

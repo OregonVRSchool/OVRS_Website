@@ -27,7 +27,7 @@
 			    					<td>{{ $application->student->first_name }} {{ $application->student->last_name }}</td>
 			    					<td>{{ $application->student->year }}</td>
 			    					<td>{{ $application->student->grade }}</td>
-			    					<td>{{ $application->student->status }} <a href="{{ route('new.student.application',  ['id' => $application->id ]) }}">(edit)</a></td>
+			    					<td>{{ $application->student->status }} <a href="{{ route('student.application',  ['id' => $application->id ]) }}">(edit)</a></td>
 			    					<td>{{ $application->progress }}</td>
 			    					<td><a href="{{ route('delete-student', ['id' => $application->id ]) }}">delete</a></td>
 			    				</tr>

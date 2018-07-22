@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use View;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Requests\StudentValidator;
 use App\Http\Requests\StudentInformation;
 use App\Http\Requests\StudentInterestsValidator;
 use App\Http\Requests\StudentSchoolValidator;
@@ -36,15 +37,10 @@ class StudentApplicationController extends BaseController
     public function newStudent(Request $request)
     {
         $application = new Application;
-        $application->user_id = Auth::user()->id;
-        // $application->first_name = $request['firstName'];
-        // $application->last_name = $request['lastName'];
-        // $application->year = $request['year'];
-        // $application->grade = $request['grade'];
-        $application->save();
+        $student = new Student;
 
-        // $request->session()->put('applicant', ['id' => $application->id, 'firstName' => $application->first_name]);
-        // dd($application->id);
+        $application = Auth::user()->applications()->save($application);
+        $application->student()->save($student);
 
         return redirect()->route('student.application', ['id' => $application->id]);
     }
@@ -52,6 +48,11 @@ class StudentApplicationController extends BaseController
     public function editStudent(Request $request, $id)
     {
         $application = Auth::user()->applications->find($id);
+
+        if (is_null($application)) {
+            return redirect()->route('applications');
+        }
+
         $request->session()->put('applicant', ['id' => $application->id, 'firstName' => $application->first_name]);
 
         $buttons = [
@@ -63,14 +64,16 @@ class StudentApplicationController extends BaseController
         return view('partials.forms.applications.student.new', ['application' => $application, 'buttons' => $buttons]);
     }
 
-    public function updateStudent(Request $request, $id)
+    public function updateStudent(StudentValidator $request, $id)
     {
-        $application = Auth::user()->applications->find($id);
-        $student = Student::firstOrNew(['applications_id'=> $application->id]);
-        $student->first_name = $request['firstName'];
-        $student->last_name = $request['lastName'];
-        $student->year = $request['year'];
-        $student->grade = $request['grade'];
+        $inputs = $request->validated();
+        $application =Auth::user()->applications->find($id);
+
+        $student = $application->student;
+        $student->first_name = $inputs['firstName'];
+        $student->last_name = $inputs['lastName'];
+        $student->year = $inputs['year'];
+        $student->grade = $inputs['grade'];
         $student->save();
 
         $request->session()->put('applicant', ['id' => $application->student->id, 'firstName' => $application->student->first_name]);

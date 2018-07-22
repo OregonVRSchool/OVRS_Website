@@ -22,7 +22,7 @@ Auth::routes();
 
 // Parent routes
 Route::group(['middleware' => ['auth', 'parent']], function() {
-	
+	// dd('inroutes');
 	Route::get('/test', 'GetController@test');
 
 	// choose an application page
