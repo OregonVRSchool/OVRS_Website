@@ -12,11 +12,11 @@
 	<div class="row">
 		<div class="col-md-6">
 			{!! Form::label('refferalName', 'Refferal Name') !!}
-			{!! Form::text ('refferalName') !!}
+			{!! Form::text ('refferalName', $page->name) !!}
 		</div>
 		<div class="col-md-6">
 			{!! Form::label('refferalEmail', 'Refferal Email') !!}
-			{!! Form::email ('refferalEmail') !!}
+			{!! Form::email ('refferalEmail', $page->email) !!}
 		</div>
 	</div>	
 

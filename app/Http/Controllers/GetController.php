@@ -15,6 +15,7 @@ use App\Student\HouseholdInformationPage;
 use App\Student\SiblingsPage;
 use App\Student\ParentQuestionairPage;
 use App\Student\StudentQuestionairPage;
+use App\Student\RecommendationPage;
 
 class GetController extends BaseController
 {
@@ -189,15 +190,20 @@ class GetController extends BaseController
         return view('partials.forms.applications.student.studentQuestionair', ['buttons' => $buttons, 'page' => $page]);
     }
 
-    public function recommendationStudentApplication()
+    public function recommendationStudentApplication($id)
     {
+        $page = Auth::user()->applications->where('id', $id)->first()->recommendationPage;
+        if (is_null($page)) {
+            $page = new RecommendationPage;
+        }
+
         $buttons = [
             'back' => 'studentQuestionair.student.application',
             'save' => 'recommendation.student.application',
             'next' => 'signature.student.application',        
         ];
 
-        return view('partials.forms.applications.student.recommendation', ['buttons' => $buttons]);
+        return view('partials.forms.applications.student.recommendation', ['buttons' => $buttons, 'page' => $page]);
     }
 
     public function signatureStudentApplication()
