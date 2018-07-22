@@ -7,7 +7,11 @@
         	<div class="col-md-12">
 				<div class="card">
 					<div class="card-header">
-						Applications
+						<div class="row">
+							<div class="col-6">Applications</div>
+							<div class="col-6"><a class="back" href="{{ route('apply') }}">New Application</a></div>
+						</div>
+						
 					</div>
 		    		<div class="card-body">
 		    			<table>
