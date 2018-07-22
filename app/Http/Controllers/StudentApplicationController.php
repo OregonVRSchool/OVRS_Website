@@ -46,7 +46,7 @@ class StudentApplicationController extends BaseController
         // $request->session()->put('applicant', ['id' => $application->id, 'firstName' => $application->first_name]);
         // dd($application->id);
 
-        return redirect()->route('new.student.application', ['id' => $application->id]);
+        return redirect()->route('student.application', ['id' => $application->id]);
     }
 
     public function editStudent(Request $request, $id)

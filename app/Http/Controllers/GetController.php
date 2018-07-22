@@ -37,6 +37,11 @@ class GetController extends BaseController
     public function applications()
     {
         $applications = Auth::user()->applications;
+        foreach ($applications as $application) {
+            if (is_null($application->student)) {
+                $application->delete();
+            }
+        }
         
         return view('layouts.applicationsStatus')->with('applications', $applications);
     }
@@ -219,6 +224,7 @@ class GetController extends BaseController
 
     public function test()
     {
-        return view('partials.forms.applications.student.electronicSignature');
+
+        return view('welcome');
     }
 }

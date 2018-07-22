@@ -12,7 +12,7 @@ class PermissionTableSeeder extends Seeder
      */
     public function run()
     {
-    	$titles = ['guest', 'volunteer', 'student', 'admin', 'superAdmin'];
+    	$titles = ['parent', 'volunteer', 'student', 'admin', 'superAdmin'];
     	$permissions = [];
     	foreach ($titles as $title) {
 	    	$permissions[] = array(

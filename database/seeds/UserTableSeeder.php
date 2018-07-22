@@ -13,7 +13,7 @@ class UserTableSeeder extends Seeder
      */
     public function run()
     {
-        $titles = ['guest', 'volunteer', 'student', 'admin', 'superAdmin'];
+        $titles = ['parent', 'volunteer', 'student', 'admin', 'superAdmin'];
         $users = [];
         foreach ($titles as $title) {
         	$users[] = array(

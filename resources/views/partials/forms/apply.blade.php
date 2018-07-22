@@ -29,7 +29,7 @@
 								</button>
 							</div>
 							<div class="col-md-4">
-								<a href="{{ route('student.application') }}">								
+								<a href="{{ route('new.student.application') }}">								
 									<button  name="Position" value="student">
 										<div class="title">
 											Student
