@@ -15,19 +15,19 @@
 	<div class="row">
 		<div class="col-md-6">
 			{!! Form::label('firstName', 'First Name') !!}
-			{!! Form::text ('firstName') !!}
+			{!! Form::text ('firstName', $page->first_name) !!}
 			{!! Form::label('lastName', 'Last Name') !!}
-			{!! Form::text ('lastName') !!}
+			{!! Form::text ('lastName', $page->last_name) !!}
 			{!! Form::label('userName', 'User Name') !!}
-			{!! Form::text ('userName') !!}
+			{!! Form::text ('userName', $page->username) !!}
 		</div>
 		<div class="col-md-6">
 			{!! Form::label('studentID', 'Student ID') !!}
-			{!! Form::text ('studentID') !!}
+			{!! Form::text ('studentID', $page->student_id) !!}
 			{!! Form::label('relationship', 'Relationship to Applicant') !!}
-			{!! Form::text ('relationship') !!}
+			{!! Form::text ('relationship', $page->relationship) !!}
 			{!! Form::label('yearsAttended', 'Years Attended') !!}
-			{!! Form::text ('yearsAttended') !!}
+			{!! Form::text ('yearsAttended', $page->years_attended) !!}
 		</div>
 	</div>
 	
