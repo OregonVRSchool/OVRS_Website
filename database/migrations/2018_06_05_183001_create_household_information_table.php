@@ -26,8 +26,8 @@ class CreateHouseholdInformationTable extends Migration
             $table->string('gender', 10);
             $table->string('relationship', 15);
             $table->string('marital_status', 15);
-            $table->boolean('financial_responcibility');
-            $table->boolean('recieve_corrispondence');
+            $table->boolean('financial_responsibility');
+            $table->boolean('recieve_correspondence');
             $table->boolean('custodial_rights');
             $table->string('email', 50);
             $table->string('work_phone', 15);

@@ -34,7 +34,7 @@ class StudentHouseholdValidator extends FormRequest
             'studentRelationship' => 'required|max:15',
             'maritalStatus' => 'required|max:15',
             'financialResponsibility' => 'required|boolean',
-            'receiveCorrispondence' => 'required|boolean',
+            'receiveCorrespondence' => 'required|boolean',
             'custodialRights' => 'required|boolean',
             'emailAddress' => 'required|email|max:50',
             'workPhone' => 'required|max:15',

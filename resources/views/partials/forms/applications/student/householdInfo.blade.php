@@ -43,8 +43,8 @@
 	<div class="col-md-6">
 		{!! Form::label('financialResponsibility', 'Financial Responsibility') !!}
 		{!! Form::select ('financialResponsibility', [true => "Yes", false => "No"], $page->financial_responsibility) !!}
-		{!! Form::label('receiveCorrispondence', 'Receive Corrispondence') !!}
-		{!! Form::select ('receiveCorrispondence', [true => "Yes", false => "No"], $page->receive_corrispondence) !!}
+		{!! Form::label('receiveCorrespondence', 'Receive Correspondence') !!}
+		{!! Form::select ('receiveCorrespondence', [true => "Yes", false => "No"], $page->recieve_correspondence) !!}
 		{!! Form::label('custodialRights', 'Custodial Rights') !!}
 		{!! Form::select ('custodialRights', [true => "Yes", false => "No"], $page->custodial_rights) !!}
 	</div>
