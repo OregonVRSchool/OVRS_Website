@@ -33,54 +33,54 @@ Route::group(['middleware' => ['auth', 'parent']], function() {
 	Route::get('/applications', 'GetController@applications')->name('applications');
 	
 	// new student application
-	Route::get('/applications/new/student/', 'StudentApplicationController@newStudent')
+	Route::get('/applications/new/student/', 'Applications\Student\StudentController@newStudent')
 		->name('new.student.application');
 	// edit student application
-	Route::get('/applications/new/student/{id}', 'StudentApplicationController@editStudent')
+	Route::get('/applications/new/student/{id}', 'Applications\Student\StudentController@editStudent')
 		->name('student.application');
-	Route::post('/applications/new/student/{id}', 'StudentApplicationController@updateStudent');
+	Route::post('/applications/new/student/{id}', 'Applications\Student\StudentController@updateStudent');
 
-	Route::get('/applications/student/information/{id}', 'GetController@informationStudentApplication')->name('information.student.application');
-	Route::post('/applications/student/information/{id}', 'StudentApplicationController@updateInformation');
+	Route::get('/applications/student/information/{id}', 'Applications\Student\InformationController@informationStudentApplication')->name('information.student.application');
+	Route::post('/applications/student/information/{id}', 'Applications\Student\InformationController@updateInformation');
 
-	Route::get('/applications/student/interests/{id}', 'GetController@interestsStudentApplication')
+	Route::get('/applications/student/interests/{id}', 'Applications\Student\InterestsController@interestsStudentApplication')
 		->name('interests.student.application');
-	Route::post('/applications/student/interests/{id}', 'StudentApplicationController@updateInterests');
+	Route::post('/applications/student/interests/{id}', 'Applications\Student\InterestsController@updateInterests');
 
-	Route::get('/applications/student/schools/{id}', 'GetController@schoolsStudentApplication')
+	Route::get('/applications/student/schools/{id}', 'Applications\Student\SchoolsController@schoolsStudentApplication')
 		->name('schools.student.application');
-	Route::post('/applications/student/schools/{id}', 'StudentApplicationController@updateSchools');
+	Route::post('/applications/student/schools/{id}', 'Applications\Student\SchoolsController@updateSchools');
 
-	Route::get('/applications/student/abilities/{id}', 'GetController@abilitiesStudentApplication')
+	Route::get('/applications/student/abilities/{id}', 'Applications\Student\AbilitiesController@abilitiesStudentApplication')
 		->name('abilities.student.application');
-	Route::post('/applications/student/abilities/{id}', 'StudentApplicationController@updateAbilities');
+	Route::post('/applications/student/abilities/{id}', 'Applications\Student\AbilitiesController@updateAbilities');
 
-	Route::get('/applications/student/household/{id}', 'GetController@householdStudentApplication')
+	Route::get('/applications/student/household/{id}', 'Applications\Student\HouseholdController@householdStudentApplication')
 		->name('household.student.application');
-	Route::post('/applications/student/household/{id}', 'StudentApplicationController@updateHousehold');
+	Route::post('/applications/student/household/{id}', 'Applications\Student\HouseholdController@updateHousehold');
 
-	Route::get('/applications/student/siblings/{id}', 'GetController@siblingsStudentApplication')
+	Route::get('/applications/student/siblings/{id}', 'Applications\Student\SiblingsController@siblingsStudentApplication')
 		->name('siblings.student.application');
-	Route::post('/applications/student/siblings/{id}', 'StudentApplicationController@updateSiblings');
+	Route::post('/applications/student/siblings/{id}', 'Applications\Student\SiblingsController@updateSiblings');
 
-	Route::get('/applications/student/parentQuestionair/{id}', 'GetController@parentQuestionairStudentApplication')
+	Route::get('/applications/student/parentQuestionair/{id}', 'Applications\Student\ParentQuestionairController@parentQuestionairStudentApplication')
 		->name('parentQuestionair.student.application');
-	Route::post('/applications/student/parentQuestionair/{id}', 'StudentApplicationController@updateParentQuestionair');
+	Route::post('/applications/student/parentQuestionair/{id}', 'Applications\Student\ParentQuestionairController@updateParentQuestionair');
 
-	Route::get('/applications/student/studentQuestionair/{id}', 'GetController@studentQuestionairStudentApplication')
+	Route::get('/applications/student/studentQuestionair/{id}', 'Applications\Student\StudentQuestionairController@studentQuestionairStudentApplication')
 		->name('studentQuestionair.student.application');
-	Route::post('/applications/student/studentQuestionair/{id}', 'StudentApplicationController@updateStudentQuestionair');
+	Route::post('/applications/student/studentQuestionair/{id}', 'Applications\Student\StudentQuestionairController@updateStudentQuestionair');
 
-	Route::get('/applications/student/recommendation/{id}', 'GetController@recommendationStudentApplication')
+	Route::get('/applications/student/recommendation/{id}', 'Applications\Student\RecommendationController@recommendationStudentApplication')
 		->name('recommendation.student.application');
-	Route::post('/applications/student/recommendation/{id}', 'StudentApplicationController@updateRecommendation');
+	Route::post('/applications/student/recommendation/{id}', 'Applications\Student\RecommendationController@updateRecommendation');
 
-	Route::get('/applications/student/signature/{id}', 'GetController@signatureStudentApplication')
+	Route::get('/applications/student/signature/{id}', 'Applications\Student\SignatureController@signatureStudentApplication')
 		->name('signature.student.application');
-	Route::post('/applications/student/signature/{id}', 'StudentApplicationController@updateSignature');
+	Route::post('/applications/student/signature/{id}', 'Applications\Student\SignatureController@updateSignature');
 
 	// delete student application
-	Route::get('/applications/delete/student/{id}', 'StudentApplicationController@deleteStudent')->name('delete-student');
+	Route::get('/applications/delete/student/{id}', 'Applications\Student\StudentController@deleteStudent')->name('delete-student');
 });
 
 
