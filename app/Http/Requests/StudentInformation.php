@@ -40,7 +40,7 @@ class StudentInformation extends FormRequest
             'studentLanguage' => 'required|max:15',
             'studentBirthCity' => 'required|max:50',
             'studentOtherLanguages' => 'required|max:50',
-            'studentPicture' => 'nullable',
+            'studentPicture' => 'nullable|image',
             'whoReferredUs' => 'nullable|max:50',
         ];
     }

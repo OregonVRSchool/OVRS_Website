@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\BaseController;
 use App\Http\Requests\StudentInformation;
 use App\Student\InformationPage;
+use App\Picture;
 
 class InformationController extends BaseController
 {
@@ -19,6 +20,9 @@ class InformationController extends BaseController
     public function informationStudentApplication(Request $request, $id)
     {
         $page = Auth::user()->applications->where('id', $id)->first()->informationPage;
+        if (isset($page->picture_id)) {
+            $page->picture = Auth::user()->pictures->find($page->picture_id)->name;
+        }
         if (is_null($page)) {
             $page = new InformationPage;
         }
@@ -37,6 +41,20 @@ class InformationController extends BaseController
         
         $inputs = $request->validated();
         
+        if (isset($inputs['studentPicture'])) {
+            $picture = new Picture;
+            
+            $picture->name = $inputs['studentPicture']->getClientOriginalName();
+            $picture->picture = base64_encode(file_get_contents($inputs['studentPicture']->path()));
+            $picture = Auth::user()->pictures()->save($picture);
+            $inputs['studentPicture'] = $picture->id;
+        } else {
+            $inputs['studentPicture'] = NULL;
+        }
+        // dd($inputs['studentPicture']);
+        
+        // dd(base64_encode(file_get_contents($inputs['studentPicture']->path())));
+
         $Page = InformationPage::updateOrCreate(
             ['application_id' => $id],
             [
@@ -56,6 +74,7 @@ class InformationController extends BaseController
                 'language' => $inputs["studentLanguage"], 
                 'other_languages' => $inputs["studentOtherLanguages"], 
                 'birth_city' => $inputs["studentBirthCity"], 
+                'picture_id' => $inputs['studentPicture'],
                 'referred_by' => $inputs["whoReferredUs"], 
             ]
         );

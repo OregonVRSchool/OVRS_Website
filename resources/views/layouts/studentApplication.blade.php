@@ -16,7 +16,7 @@
 					    </div>
 					@endif
 				    <div @yield('page-id')>
-				    	{!! Form::open(array('url' => '#')) !!}
+				    	{!! Form::open(array('url' => '#', 'files' => 'true')) !!}
 				    		<div class="card-header">
 				    			@section('page-title')
 				    			@show
