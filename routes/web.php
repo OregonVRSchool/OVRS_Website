@@ -33,12 +33,15 @@ Route::group(['middleware' => ['auth', 'parent']], function() {
 	Route::get('/applications', 'GetController@applications')->name('applications');
 	
 	// new student application
-	Route::get('/applications/new/student/', 'Applications\Student\StudentController@newStudent')
-		->name('new.student.application');
-	// edit student application
+	Route::get('/applications/new/student/', 'Applications\Student\StudentController@newStudent')->name('new.student.application');
 	Route::get('/applications/new/student/{id}', 'Applications\Student\StudentController@editStudent')
 		->name('student.application');
-	Route::post('/applications/new/student/{id}', 'Applications\Student\StudentController@updateStudent');
+	// edit student application
+		Route::group(['middleware' => ['studentApplication']], function() {
+			
+			Route::post('/applications/new/student/{id}', 'Applications\Student\StudentController@updateStudent');
+		});
+	
 
 	Route::get('/applications/student/information/{id}', 'Applications\Student\InformationController@informationStudentApplication')->name('information.student.application');
 	Route::post('/applications/student/information/{id}', 'Applications\Student\InformationController@updateInformation');

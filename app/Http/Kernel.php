@@ -62,5 +62,6 @@ class Kernel extends HttpKernel
         'admin' => 'App\Http\Middleware\AdminMiddleware',
         'superAdmin' => 'App\Http\Middleware\SuperAdminMiddleware',
         'parent' => 'App\Http\Middleware\ParentMiddleware',
+        'studentApplication' => 'App\Http\Middleware\StudentApplicationMiddleware',
     ];
 }
