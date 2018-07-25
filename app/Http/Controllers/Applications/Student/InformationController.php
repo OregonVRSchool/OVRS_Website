@@ -21,10 +21,14 @@ class InformationController extends BaseController
     {
         $page = Auth::user()->applications->where('id', $id)->first()->informationPage;
         if (isset($page->picture_id)) {
-            $page->picture = Auth::user()->pictures->find($page->picture_id)->name;
+
+            $page->file = Auth::user()->pictures->find($page->picture_id);
+            
+            // echo '<img src="data:image/jpeg;base64,'.$page->picture->picture.'"/>';
         }
         if (is_null($page)) {
             $page = new InformationPage;
+            // $page->file = new Picture;
         }
         
         $buttons = [
@@ -40,22 +44,7 @@ class InformationController extends BaseController
     {
         
         $inputs = $request->validated();
-        
-        if (isset($inputs['studentPicture'])) {
-            $picture = new Picture;
-            
-            $picture->name = $inputs['studentPicture']->getClientOriginalName();
-            $picture->picture = base64_encode(file_get_contents($inputs['studentPicture']->path()));
-            $picture = Auth::user()->pictures()->save($picture);
-            $inputs['studentPicture'] = $picture->id;
-        } else {
-            $inputs['studentPicture'] = NULL;
-        }
-        // dd($inputs['studentPicture']);
-        
-        // dd(base64_encode(file_get_contents($inputs['studentPicture']->path())));
-
-        $Page = InformationPage::updateOrCreate(
+        $page = Auth::user()->applications->where('id', $id)->first()->informationPage()->firstOrNew(
             ['application_id' => $id],
             [
                 'preferred_name' => $inputs["preferredName"], 
@@ -74,10 +63,32 @@ class InformationController extends BaseController
                 'language' => $inputs["studentLanguage"], 
                 'other_languages' => $inputs["studentOtherLanguages"], 
                 'birth_city' => $inputs["studentBirthCity"], 
-                'picture_id' => $inputs['studentPicture'],
                 'referred_by' => $inputs["whoReferredUs"], 
             ]
         );
+
+        if (isset($inputs['file'])) {
+            $picture = new Picture;
+            
+            $picture->name = $inputs['file']->getClientOriginalName();
+            $picture->content = base64_encode(file_get_contents($inputs['file']->path()));
+            $picture = Auth::user()->pictures()->save($picture);
+            $inputs['file'] = $picture->id;
+            $page->picture_id = $inputs['file'];
+        } 
+
+        $page->save();
+
         return redirect()->route($request['submit'], ['id' => $id]);
+    }
+
+    public function deleteFile(Request $request, $id)
+    {
+        $page = Auth::user()->applications()->find($id)->informationPage;
+        $page->picture_id = null;
+        $page->save();
+        $photo = Auth::user()->pictures()->find($request->id);
+        $photo->delete();
+        return response()->json(['response' => 'photo deleted']);
     }
 }

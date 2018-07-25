@@ -16,7 +16,7 @@
 Route::get('/', 'GetController@index')->name('home');
 Route::get('/home', 'HomeController@index');
 
-Route::get('/{category}/{page}', 'GetController@category')->name('category');
+
 
 Auth::routes();
 
@@ -42,6 +42,7 @@ Route::group(['middleware' => ['auth', 'parent']], function() {
 
 	Route::get('/applications/student/information/{id}', 'Applications\Student\InformationController@informationStudentApplication')->name('information.student.application');
 	Route::post('/applications/student/information/{id}', 'Applications\Student\InformationController@updateInformation');
+	Route::post('/applications/student/information/{id}/delete/file', 'Applications\Student\InformationController@deleteFile');
 
 	Route::get('/applications/student/interests/{id}', 'Applications\Student\InterestsController@interestsStudentApplication')
 		->name('interests.student.application');
@@ -81,6 +82,7 @@ Route::group(['middleware' => ['auth', 'parent']], function() {
 
 	// delete student application
 	Route::get('/applications/delete/student/{id}', 'Applications\Student\StudentController@deleteStudent')->name('delete-student');
+	Route::post('/delete/file', 'FileController@deleteFile');
 });
 
 
@@ -104,6 +106,7 @@ Route::group(['middleware' => ['auth', 'superAdmin']], function() {
 	Route::get('/cms/{category}/index', 'CategoryController@index');
 });
 
+Route::get('/{category}/{page}', 'GetController@category')->name('category');
 
 // Route::get('/creator/page', 'PageController@Creator')->name('page-creator');
 // Route::post('/creator/page', 'PageController@Create');

@@ -1,7 +1,7 @@
 @extends('layouts.studentApplication')
 
 @section('page-id')
-	student-information
+	id="student-information"
 @endsection
 
 @section('page-title')
@@ -86,7 +86,7 @@
 	<div class="row">
 		<div class="col-md-6">
 			{!! Form::label('studentPicture', 'Picture') !!}
-			{!! Form::file ('studentPicture', null) !!}
+			@include('partials.forms.applications.parts.fileUpload')			
 		</div>
 		<div class="col-md-6">
 			{!! Form::label('whoReferredUs', 'How did you hear about us') !!}

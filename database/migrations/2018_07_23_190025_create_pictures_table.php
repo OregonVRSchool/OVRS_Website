@@ -17,7 +17,7 @@ class CreatePicturesTable extends Migration
             $table->increments('id');
             $table->timestamps();
             $table->integer('user_id');
-            $table->longText('picture');
+            $table->longText('content');
             $table->string('name');
         });
     }

@@ -273,6 +273,20 @@ button {
 
 	}
 
+#file-upload #display-upload {
+	text-align: center;
+}
+
+	#file-upload #display-upload img{
+		width: 100%;
+		height: auto;
+		margin-bottom: 5px;
+	}
+
+	#file-upload #display-upload button{
+		margin-top: 5px;
+	}
+
 #main {
 	/*padding-top: 50px;*/
 	background-color: black;
@@ -352,6 +366,12 @@ button {
 		width: 14px;
 		margin-top: 2px;
 	}
+
+/*#student-information img{
+	width: 50px;
+	height: 50px;
+}*/
+
 
 /* Classes */
 .apply .card-body {
@@ -435,6 +455,10 @@ button {
 .dropdown-item:hover{
 	color: #C10000;
 	background-color: black;
+}
+
+.hidden{
+	display: none;
 }
 
 .mr-auto{
