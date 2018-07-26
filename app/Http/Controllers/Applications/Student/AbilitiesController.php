@@ -16,9 +16,9 @@ class AbilitiesController extends BaseController
         parent::__construct();
     }
 
-    public function abilitiesStudentApplication($id)
+    public function abilitiesStudentApplication(Request $request, $id)
     {
-        $page = Auth::user()->applications->where('id', $id)->first()->strengthsNeedsPage;
+        $page = $request->get('application')->strengthsNeedsPage;
         if (is_null($page)) {
             $page = new StrengthsNeedsPage;
         }
@@ -36,8 +36,7 @@ class AbilitiesController extends BaseController
     {
         $inputs = $request->validated();
 
-        $Page = StrengthsNeedsPage::updateOrCreate(
-            ['application_id' => $id],
+        $Page = $request->get('application')->strengthsNeedsPage()->updateOrCreate(
             [
                 'strengths' => $inputs["studentStrengths"],
                 'needs' => $inputs["studentNeeds"],

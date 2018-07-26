@@ -17,9 +17,9 @@ class SiblingsController extends BaseController
         parent::__construct();
     }
 
-    public function siblingsStudentApplication($id)
+    public function siblingsStudentApplication(Request $request, $id)
     {
-        $page = Auth::user()->applications->where('id', $id)->first()->siblingsPages->first();
+        $page = $request->get('application')->siblingsPages->first();
         if (is_null($page)) {
             $page = new SiblingsPage;
         }
@@ -37,8 +37,7 @@ class SiblingsController extends BaseController
     {
         $inputs = $request->validated();
 
-        $Page = SiblingsPage::updateOrCreate(
-            ['application_id' => $id],
+        $Page = $request->get('application')->siblingsPages()->updateOrCreate(
             [
                 'first_name' => $inputs['firstName'],
                 'last_name' => $inputs['lastName'],

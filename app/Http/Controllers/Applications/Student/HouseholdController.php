@@ -16,9 +16,9 @@ class HouseholdController extends BaseController
         parent::__construct();
     }
 
-    public function householdStudentApplication($id)
+    public function householdStudentApplication(Request $request, $id)
     {
-        $page = Auth::user()->applications->where('id', $id)->first()->householdInformationPages->first();
+        $page = $request->get('application')->householdInformationPages->first();
         
         if (is_null($page)) {
             $page = new HouseholdInformationPage;
@@ -40,8 +40,7 @@ class HouseholdController extends BaseController
     {
         $inputs = $request->validated();
 
-        $Page = HouseholdInformationPage::updateOrCreate(
-            ['application_id' => $id],
+        $Page = $request->get('application')->householdInformationPages()->updateOrCreate(
             [
                 'first_name' => $inputs['firstName'],
                 'middle_name' => $inputs['middleName'],

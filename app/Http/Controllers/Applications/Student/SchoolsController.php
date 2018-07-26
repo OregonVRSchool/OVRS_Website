@@ -16,9 +16,9 @@ class SchoolsController extends BaseController
       parent::__construct();
     }
 
-	public function schoolsStudentApplication($id)
+	public function schoolsStudentApplication(Request $request, $id)
     {
-        $page = Auth::user()->applications->where('id', $id)->first()->schoolsPage;
+        $page = $request->get('application')->schoolsPage;
         if (is_null($page)) {
             $page = new SchoolsPage;
             $page->iep = 'false';
@@ -37,8 +37,8 @@ class SchoolsController extends BaseController
     {
         $inputs = $request->validated();
 
-        $Page = SchoolsPage::updateOrCreate(
-            ['application_id' => $id],
+        $Page = $request->get('application')->schoolsPage()->updateOrCreate(
+            
             [
                 'name' => $inputs['schoolName'],
                 'address' => $inputs['address'],

@@ -16,9 +16,9 @@ class RecommendationController extends BaseController
         parent::__construct();
     } 
 
-    public function recommendationStudentApplication($id)
+    public function recommendationStudentApplication(Request $request, $id)
     {
-        $page = Auth::user()->applications->where('id', $id)->first()->recommendationPage;
+        $page = $request->get('application')->recommendationPage;
         if (is_null($page)) {
             $page = new RecommendationPage;
         }
@@ -36,8 +36,7 @@ class RecommendationController extends BaseController
     {
         $inputs = $request->validated();
 
-        $Page = RecommendationPage::updateOrCreate(
-            ['application_id' => $id],
+        $Page = $request->get('application')->recommendationPage()->updateOrCreate(
             [
                 'name' => $inputs['refferalName'],
                 'email' => $inputs['refferalEmail'],

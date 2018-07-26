@@ -16,9 +16,9 @@ class InterestsController extends BaseController
       parent::__construct();
     }
 
-    public function interestsStudentApplication($id)
+    public function interestsStudentApplication(Request $request, $id)
     {
-        $page = Auth::user()->applications->where('id', $id)->first()->interestsPage;
+        $page = $request->get('application')->interestsPage;
         if (is_null($page)) {
             $page = new InterestsPage;
         }
@@ -36,7 +36,7 @@ class InterestsController extends BaseController
     {
         $inputs = $request->validated();
 
-        $Page = InterestsPage::updateOrCreate(
+        $Page = $request->get('application')->interestsPage()->updateOrCreate(
             ['application_id' => $id],
             [
                 'sports' => $inputs["sports"],

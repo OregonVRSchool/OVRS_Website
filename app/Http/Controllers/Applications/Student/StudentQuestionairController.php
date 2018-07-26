@@ -16,9 +16,9 @@ class StudentQuestionairController extends BaseController
         parent::__construct();
     }
 
-    public function studentQuestionairStudentApplication($id)
+    public function studentQuestionairStudentApplication(Request $request, $id)
     {
-        $page = Auth::user()->applications->where('id', $id)->first()->studentQuestionairPage;
+        $page = $request->get('application')->studentQuestionairPage;
         if (is_null($page)) {
             $page = new StudentQuestionairPage;
         }
@@ -36,8 +36,7 @@ class StudentQuestionairController extends BaseController
     {
         $inputs = $request->validated();
 
-        $Page = StudentQuestionairPage::updateOrCreate(
-            ['application_id' => $id],
+        $Page = $request->get('application')->studentQuestionairPage()->updateOrCreate(
             [
                 'question_one' => $inputs['questionOne'],
                 'question_two' => $inputs['questionTwo'],
