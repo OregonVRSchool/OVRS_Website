@@ -19,7 +19,7 @@ class InformationController extends BaseController
 
     public function informationStudentApplication(Request $request, $id)
     {
-        $page = Auth::user()->applications->where('id', $id)->first()->informationPage;
+        $page = $request->get('application')->informationPage;
         if (isset($page->picture_id)) {
 
             $page->file = Auth::user()->pictures->find($page->picture_id);

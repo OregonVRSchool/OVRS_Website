@@ -41,6 +41,8 @@ class StudentApplicationMiddleware
             return redirect()->route('applications');
         }
 
+        $request->attributes->add(['application' => $application]);
+
         return $next($request);
     }
 }
