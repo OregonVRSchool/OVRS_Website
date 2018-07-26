@@ -4,14 +4,14 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Picture extends Model
+class File extends Model
 {
     /**
      * The table associated with the model.
      *
      * @var string
      */
-    protected $table = 'pictures';
+    protected $table = 'files';
 
     /**
      * The attributes that aren't mass assignable.
@@ -20,9 +20,9 @@ class Picture extends Model
      */
     protected $guarded = ['id', 'created_at', 'updated_at'];
 
-    public function user()
+    public function application()
     {
-    	return $this->belongsTo('App\User');
+    	return $this->belongsTo('App\Student\Application');
     }
 
 }

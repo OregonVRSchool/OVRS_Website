@@ -24,4 +24,6 @@ class InformationPage extends Model
     {
     	return $this->belongsTo('App\Student\Application');
     }
+
+    
 }

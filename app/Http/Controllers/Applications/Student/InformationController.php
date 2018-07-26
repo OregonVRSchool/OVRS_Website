@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\BaseController;
 use App\Http\Requests\StudentInformation;
 use App\Student\InformationPage;
-use App\Picture;
+use App\File;
 
 class InformationController extends BaseController
 {
@@ -19,10 +19,12 @@ class InformationController extends BaseController
 
     public function informationStudentApplication(Request $request, $id)
     {
+        $application = $request->get('application');
         $page = $request->get('application')->informationPage;
+        
         if (isset($page->picture_id)) {
 
-            $page->file = Auth::user()->pictures->find($page->picture_id);
+            $page->file = $application->files->find($page->picture_id);
             
             // echo '<img src="data:image/jpeg;base64,'.$page->picture->picture.'"/>';
         }
@@ -44,7 +46,8 @@ class InformationController extends BaseController
     {
         
         $inputs = $request->validated();
-        $page = Auth::user()->applications->where('id', $id)->first()->informationPage()->firstOrNew(
+        $application = $request->get('application');
+        $page = $application->informationPage()->firstOrNew(
             ['application_id' => $id],
             [
                 'preferred_name' => $inputs["preferredName"], 
@@ -68,11 +71,11 @@ class InformationController extends BaseController
         );
 
         if (isset($inputs['file'])) {
-            $picture = new Picture;
+            $picture = new File;
             
             $picture->name = $inputs['file']->getClientOriginalName();
             $picture->content = base64_encode(file_get_contents($inputs['file']->path()));
-            $picture = Auth::user()->pictures()->save($picture);
+            $picture = $application->files()->save($picture);
             $inputs['file'] = $picture->id;
             $page->picture_id = $inputs['file'];
         } 
@@ -84,10 +87,11 @@ class InformationController extends BaseController
 
     public function deleteFile(Request $request, $id)
     {
-        $page = Auth::user()->applications()->find($id)->informationPage;
+        $application = $request->get('application');
+        $page = $application->informationPage;
         $page->picture_id = null;
         $page->save();
-        $photo = Auth::user()->pictures()->find($request->id);
+        $photo = $application->files()->find($request->id);
         $photo->delete();
         return response()->json(['response' => 'photo deleted']);
     }

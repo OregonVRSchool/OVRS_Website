@@ -74,4 +74,9 @@ class Application extends Model
     {
         return$this->hasOne('App\Student\RecommendationPage');
     }
+
+    public function files()
+    {
+        return $this->hasMany('App\File');
+    }
 }
