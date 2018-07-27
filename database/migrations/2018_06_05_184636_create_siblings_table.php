@@ -17,6 +17,7 @@ class CreateSiblingsTable extends Migration
             $table->increments('id');
             $table->timestamps();
             $table->integer('application_id');
+            $table->boolean('has_siblings');
             $table->string('first_name', 50);
             $table->string('last_name', 50);
             $table->string('username', 50);

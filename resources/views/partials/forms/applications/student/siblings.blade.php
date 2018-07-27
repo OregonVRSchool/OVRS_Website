@@ -10,7 +10,7 @@
 
 @section('form-content')
 	{!! Form::label('hasSiblings', 'Does the applicant have any other relatives who currently attend, have attended or have graduated from our school') !!}
-	{!! Form::select ('hasSiblings', [true => "Yes", false => "No"], true) !!}
+	{!! Form::select ('hasSiblings', [true => "Yes", false => "No"], $page->hasSiblings) !!}
 
 	<div class="row">
 		<div class="col-md-6">

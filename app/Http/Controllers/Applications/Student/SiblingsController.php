@@ -22,6 +22,7 @@ class SiblingsController extends BaseController
         $page = $request->get('application')->siblingsPages->first();
         if (is_null($page)) {
             $page = new SiblingsPage;
+            $page->hasSiblings = false;
         }
 
         $buttons = [
@@ -36,17 +37,23 @@ class SiblingsController extends BaseController
     public function updateSiblings(StudentSiblingsValidator $request, $id)
     {
         $inputs = $request->validated();
-
-        $Page = $request->get('application')->siblingsPages()->updateOrCreate(
-            [
-                'first_name' => $inputs['firstName'],
-                'last_name' => $inputs['lastName'],
-                'username' => $inputs['userName'],
-                'student_id' => $inputs['studentID'],
-                'relationship' => $inputs['relationship'],
-                'years_attended' => $inputs['yearsAttended'],
-            ]
-        );
+        // dd($inputs);
+        if ($inputs['hasSiblings']) {
+            $Page = $request->get('application')->siblingsPages()->updateOrCreate(
+                [   
+                    'has_siblings' => $inputs['hasSiblings'],
+                    'first_name' => $inputs['firstName'],
+                    'last_name' => $inputs['lastName'],
+                    'username' => $inputs['userName'],
+                    'student_id' => $inputs['studentID'],
+                    'relationship' => $inputs['relationship'],
+                    'years_attended' => $inputs['yearsAttended'],
+                ]
+            );
+        } else {
+            $request->get('application')->siblingsPages()->delete();
+        }
+        
         return redirect()->route($request['submit'], ['id' => $id]);
     }
 }

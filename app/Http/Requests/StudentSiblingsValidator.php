@@ -25,12 +25,14 @@ class StudentSiblingsValidator extends FormRequest
     {
         return [
             'hasSiblings' => 'required|boolean',
-            'firstName' => 'required|max:50',
-            'lastName' => 'required|max:50',
-            'userName' => 'required|max:50',
-            'studentID' => 'required|numeric|max:10',
-            'relationship' => 'required|max:50',
-            'yearsAttended' => 'required|max:15',
+            'firstName' => 'required_if:hasSiblings, ==, 1|max:50',
+            'lastName' => 'required_if:hasSiblings, ==, 1|max:50',
+            'userName' => 'required_if:hasSiblings, ==, 1|max:50',
+            'studentID' => 'required_if:hasSiblings, ==, 1|numeric|max:10|nullable',
+            'relationship' => 'required_if:hasSiblings, ==, 1|max:50',
+            'yearsAttended' => 'required_if:hasSiblings, ==, 1|max:15',
         ];
     }
+
+    
 }
